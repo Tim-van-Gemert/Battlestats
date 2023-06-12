@@ -1,0 +1,75 @@
+import DataFetcher from "@/components/dataFetcher"
+import Link from "next/link"
+import { useRouter } from 'next/router'
+import { useEffect, useState } from "react"
+
+export default function Home() {
+  const game = useRouter()
+  const [playerData, setPlayerData] = useState();
+  const [highLightImage, sethighLightImage] = useState();
+
+
+  const pages = [
+    {
+      name: 'Battlefield 2042',
+      slug: 'Battlefield_2042',
+      img: '/bf2042.png',
+    },
+    {
+      name: 'Battlefield V',
+      slug: 'Battlefield_v',
+      img: '/bfv.jpg',
+    },
+    {
+      name: 'Battlefield 4',
+      slug: 'Battlefield_4',
+      img: '/bf4.jpg',
+    },
+    {
+      name: 'Battlefield 1',
+      slug: 'Battlefield_1',
+      img: '/bf1.jpg',
+    },
+    {
+      name: 'Battlefield Hardline',
+      slug: 'Battlefield_hardline',
+      img: '/bfh.jpg',
+    },
+  ]
+
+
+  
+  useEffect(() => {
+    <DataFetcher players={['TIMMMAHHHHHH']} setPlayerData={setPlayerData}/>
+    console.log(playerData)
+  }, [game.query.game])
+  
+  let img = '/bf2042.png'
+  return (
+    <div className="w-[1200px] mt-12 flex flex-col gap-6 h-full p-5">
+      <div className=" flex flex-row gap-6 ">
+        <div className="h-[100px] w-[100px] bg-[#1E1E27] rounded-[10px]"></div>
+        <div className="flex flex-col h-full justify-center">
+          <h1 className="text-[24px]">TIMMMAHHHHHH</h1>
+          <p className="text-[18px] text-[#B4B4B4]">Lorem Ipsum enz</p>
+        </div>
+      </div>
+      <div className="flex flex-row gap-6">
+        {pages.map((p) => {
+          if (p.slug == game.query.game) {
+            img = p.img
+          }
+          return (
+            <Link key={p.slug} href={`/?game=${p.slug}`} className={`p-3 ${p.slug == game.query.game ? 'bg-[#1E1E27]' : 'hover:bg-[#1E1E27]'}  transition-all rounded-[10px] hover:cursor-pointer`}>{p.name}</Link>
+          )
+        })}
+        </div>
+        <div className="flex flex-row  h-[100px] gap-6">
+          <img className="rounded-[10px] transition-all w-full h-full object-cover" src={img}></img>
+        </div>
+        <div className="flex flex-row bg-[#1E1E27] rounded-[10px] h-[250px] gap-6">
+
+        </div>
+    </div>
+  )
+}
