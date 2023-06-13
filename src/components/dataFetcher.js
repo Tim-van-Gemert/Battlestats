@@ -10,13 +10,13 @@ const DataFetcher = (props) => {
         )
         .then((response) => {
           console.log(response.data);
-          props.setPlayerData((prevData) => [...prevData, response.data]);
+          props.setPlayerData(response.data);
         })
         .catch((error) => {
           console.error(error);
         });
     });
-  }, [props.players, props.setPlayerData]);
+  }, [props.game]);
 
   // Return null or a loading indicator if needed
   return null;

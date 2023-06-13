@@ -6,42 +6,41 @@ import { useEffect, useState } from "react"
 export default function Home() {
   const game = useRouter()
   const [playerData, setPlayerData] = useState();
-  const [highLightImage, sethighLightImage] = useState();
+  const [currentGame, setCurrentGame] = useState();
 
 
   const pages = [
     {
       name: 'Battlefield 2042',
       slug: 'Battlefield_2042',
-      img: '/bf2042.png',
+      img: "bg-[url('/bf2042.png')]",
     },
     {
       name: 'Battlefield V',
       slug: 'Battlefield_v',
-      img: '/bfv.jpg',
+      img: "bg-[url('/bfv.jpg')]",
     },
     {
       name: 'Battlefield 4',
       slug: 'Battlefield_4',
-      img: '/bf4.jpg',
+      img: "bg-[url('/bf4.jpg')]",
     },
     {
       name: 'Battlefield 1',
       slug: 'Battlefield_1',
-      img: '/bf1.jpg',
+      img: "bg-[url('/bf1.jpg')]",
     },
     {
       name: 'Battlefield Hardline',
       slug: 'Battlefield_hardline',
-      img: '/bfh.jpg',
+      img: "bg-[url('/bfh.jpg')]",
     },
   ]
 
 
   
   useEffect(() => {
-    <DataFetcher players={['TIMMMAHHHHHH']} setPlayerData={setPlayerData}/>
-    console.log(playerData)
+    setCurrentGame(game.query.game)
   }, [game.query.game])
   
   let img = '/bf2042.png'
@@ -66,10 +65,11 @@ export default function Home() {
           )
         })}
         </div>
-        <div className="flex flex-row  relative z-20 h-[100px] gap-6">
+        <div className="flex flex-row  relative z-20 h-[300px] gap-6">
           <div className="flex flex-row bg-[#1E1E27] rounded-[10px] w-full h-full gap-6"></div>
         </div>
-        <img className="rounded-[10px] transition-all w-full absolute left-0  top-0 z-10 opacity-[5%]  h-full object-cover" src={img}></img>
+        <div className={`rounded-[10px] transition-all w-full absolute left-0  top-0 z-10 opacity-[5%] ${img} bgno-repeat bg-cover h-full `} src={img}></div>
+        <DataFetcher players={['TIMMMAHHHHHH']} setPlayerData={setPlayerData} game={currentGame}/>
     </div>
   )
 }
