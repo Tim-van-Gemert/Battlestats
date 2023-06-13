@@ -81,11 +81,11 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col justify-between col-span-2">
                   <div className="font-bold">Best Weapons</div>
-                  <div className="flex flex-row gap-2">
-                  {bestWeapon.map((bw) => {
+                  <div className="flex flex-row gap-12">
+                  {bestWeapon?.map((bw) => {
                     return (
-                      <div className="flex flex-row  gap-2">
-                        <div className="flex flex-col  gap-4">
+                      <div className="flex flex-col  gap-2">
+                        <div className="flex flex-row  gap-4">
                           <div className="flex flex-row ">
                             <div className="text-[#B4B4B4]"> Name :</div> <div>{bw.name}</div>
                           </div>
@@ -100,7 +100,7 @@ export default function Home() {
                           </div>
                           
                         </div>
-                        <img className="w-1/2 rotate-[-90deg]" src={bw.img} />
+                        <img className="w-full h-[150px]" src={bw.img} />
 
                       </div>
                     )
