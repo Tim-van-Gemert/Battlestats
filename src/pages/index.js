@@ -38,15 +38,21 @@ export default function Home() {
   const [playerData, setPlayerData] = useState();
   const [currentGame, setCurrentGame] = useState();
   const [combatData, setCombatData] = useState();
+  const [bestWeapon, setBestWeapon] = useState();
   let img = ''
 
   useEffect(() => {
     setCurrentGame(router.query.game);
   }, [router.query.game]);
 
+  useEffect(() => {
+    console.log(bestWeapon)
+  }, [bestWeapon])
+
+
   return (
     <>
-      <DataFetcher players={['TIMMMAHHHHHH']} setPlayerData={setPlayerData} game={currentGame} setCombatData={setCombatData} />
+      <DataFetcher players={['TIMMMAHHHHHH']} setPlayerData={setPlayerData} setBestWeapon={setBestWeapon} game={currentGame} setCombatData={setCombatData} />
       <div className="w-[1200px] z-20 mt-12 flex flex-col gap-6 h-full">
         <div className="flex flex-row gap-6">
           <img src={playerData?.avatar} className={`h-[100px] w-[100px] relative z-20 rounded-[5px] bg-[#1E1E27] ${!playerData ? 'skeleton' : ''}`} />
@@ -65,16 +71,44 @@ export default function Home() {
             );
           })}
         </div>
-        <div className="flex flex-row relative z-20 h-[300px] gap-6">
-          <div className={`grid grid-cols-6 bg-[#1E1E27] ${!playerData ? 'skeleton' : ''} rounded-[5px] w-full h-full p-5 gap-6`}>
-            <div className="flex flex-col gap-3">
-              {playerData && (
-                <>
+        <div className="flex flex-row relative z-20 h-[300px]">
+          <div className={` bg-[#1E1E27] ${!playerData ? 'skeleton' : ''} rounded-[5px] w-full h-full p-5 gap-6`}>
+            {playerData && (
+              <div className="grid grid-cols-3 gap-12   w-full h-full">
+                <div className="flex flex-col justify-between">
                   <div className="font-bold">Combat</div>
                   <DisplayData APIData={combatData} />
-                </>
-              )}
-            </div>
+                </div>
+                <div className="flex flex-col justify-between col-span-2">
+                  <div className="font-bold">Best Weapons</div>
+                  <div className="flex flex-row gap-2">
+                  {bestWeapon.map((bw) => {
+                    return (
+                      <div className="flex flex-row  gap-2">
+                        <div className="flex flex-col  gap-4">
+                          <div className="flex flex-row ">
+                            <div className="text-[#B4B4B4]"> Name :</div> <div>{bw.name}</div>
+                          </div>
+                          <div className="flex flex-row">
+                            <div className="text-[#B4B4B4]"> Type :</div> <div>{bw.type}</div>
+                          </div>
+                          <div className="flex flex-row">
+                            <div className="text-[#B4B4B4]"> Kills :</div> <div>{bw.kills}</div>
+                          </div>
+                          <div className="flex flex-row">
+                            <div className="text-[#B4B4B4]"> Times :</div> <div>{bw.timeEquiped}</div>
+                          </div>
+                          
+                        </div>
+                        <img className="w-1/2 rotate-[-90deg]" src={bw.img} />
+
+                      </div>
+                    )
+                  })}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
         <div className={`rounded-[10px] transition-all w-full min-w-full min-h-full absolute left-0 top-0 z-10 opacity-[5%] bg-no-repeat bg-cover ${img} h-full`} />

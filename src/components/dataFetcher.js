@@ -25,7 +25,7 @@ const DataFetcher = (props) => {
 
   if (fetchedData != undefined) {
     return (
-      <ConstructData APIData={fetchedData} setCombatData={props.setCombatData}/>
+      <ConstructData APIData={fetchedData} setBestWeapon={props.setBestWeapon} setCombatData={props.setCombatData}/>
     )
   }
 
