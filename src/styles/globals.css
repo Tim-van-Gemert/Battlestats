@@ -25,3 +25,22 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.skeleton {
+  background-image: linear-gradient(
+    90deg,
+    #1E1E27 0px,
+    #2e2e40 30px,
+    #1E1E27 90px
+  );
+  background-size: 300%;
+  background-position: 100% 0;
+  border-radius: inherit;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -100% 0;
+  }
+}
