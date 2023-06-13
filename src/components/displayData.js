@@ -1,5 +1,4 @@
 const DisplayData = (props) => {
-  console.log(props.APIData);
   if (props.APIData != undefined) {
     return (
       <>

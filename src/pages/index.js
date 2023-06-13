@@ -47,13 +47,14 @@ export default function Home() {
 
   let img = '/bf2042.png'
   return (
-
-    <div className="w-[1200px] z-20  mt-12 flex flex-col gap-6 h-full ">
+    <>
+      <DataFetcher players={['TIMMMAHHHHHH']} setPlayerData={setPlayerData} game={currentGame} setCombatData={setCombatData} />
+      <div className="w-[1200px] z-20  mt-12 flex flex-col gap-6 h-full ">
       <div className=" flex flex-row gap-6 ">
-        <div className="h-[100px] w-[100px] relative z-20  bg-[#1E1E27] rounded-[10px]"></div>
+        <img src={playerData != undefined ? playerData.avatar : null} className="h-[100px] w-[100px] relative z-20 rounded-[5px] bg-[#1E1E27]"/>
         <div className="flex flex-col h-full justify-center">
-          <h1 className="text-[24px]">TIMMMAHHHHHH</h1>
-          <p className="text-[18px] text-[#B4B4B4]">Lorem Ipsum enz</p>
+          <h1 className="text-[24px]">{playerData?.userName}</h1>
+          <p className="text-[18px] text-[#B4B4B4]">{playerData?.id}</p>
         </div>
       </div>
       <div className="flex flex-row gap-6 relative z-20">
@@ -63,14 +64,13 @@ export default function Home() {
             img = g.img
           }
           return (
-            <Link key={g.slug} href={`/?game=${g.slug}`} className={`p-3 ${g.slug == game.query.game ? 'bg-[#1E1E27]' : 'hover:bg-[#1E1E27]'}  transition-all rounded-[10px] hover:cursor-pointer`}>{g.name}</Link>
+            <Link key={g.slug} href={`/?game=${g.slug}`} className={`p-3 ${g.slug == game.query.game ? 'bg-[#1E1E27]' : 'hover:bg-[#1E1E27]'}  transition-all rounded-[5px] hover:cursor-pointer`}>{g.name}</Link>
           )
         })}
 
       </div>
-      <DataFetcher players={['TIMMMAHHHHHH']} setPlayerData={setPlayerData} game={currentGame} setCombatData={setCombatData} />
       <div className="flex flex-row  relative z-20 h-[300px] gap-6">
-        <div className="grid grid-cols-6 bg-[#1E1E27] rounded-[10px] w-full h-full  p-5 gap-6">
+        <div className="grid grid-cols-6 bg-[#1E1E27] rounded-[5px] w-full h-full  p-5 gap-6">
           <div className="flex flex-col gap-3">
             <div className="font-bold ">Combat</div>
               <DisplayData APIData={combatData}/>
@@ -80,5 +80,7 @@ export default function Home() {
       <div className={`rounded-[10px] transition-all w-full min-w-full min-h-full absolute left-0  top-0 z-10 opacity-[5%] ${img} bg-no-repeat bg-cover h-full `} src={img}></div>
 
     </div>
+    </>
+    
   )
 }
