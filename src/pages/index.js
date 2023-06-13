@@ -46,15 +46,17 @@ export default function Home() {
   
   let img = '/bf2042.png'
   return (
-    <div className="w-[1200px] mt-12 flex flex-col gap-6 h-full p-5">
+    
+    <div className="w-[1200px] z-20  mt-12 flex flex-col gap-6 h-full ">
       <div className=" flex flex-row gap-6 ">
-        <div className="h-[100px] w-[100px] bg-[#1E1E27] rounded-[10px]"></div>
+        <div className="h-[100px] w-[100px] relative z-20  bg-[#1E1E27] rounded-[10px]"></div>
         <div className="flex flex-col h-full justify-center">
           <h1 className="text-[24px]">TIMMMAHHHHHH</h1>
           <p className="text-[18px] text-[#B4B4B4]">Lorem Ipsum enz</p>
         </div>
       </div>
-      <div className="flex flex-row gap-6">
+      
+      <div className="flex flex-row gap-6 relative z-20">
         {pages.map((p) => {
           if (p.slug == game.query.game) {
             img = p.img
@@ -64,12 +66,10 @@ export default function Home() {
           )
         })}
         </div>
-        <div className="flex flex-row  h-[100px] gap-6">
-          <img className="rounded-[10px] transition-all w-full h-full object-cover" src={img}></img>
+        <div className="flex flex-row  relative z-20 h-[100px] gap-6">
+          <div className="flex flex-row bg-[#1E1E27] rounded-[10px] w-full h-full gap-6"></div>
         </div>
-        <div className="flex flex-row bg-[#1E1E27] rounded-[10px] h-[250px] gap-6">
-
-        </div>
+        <img className="rounded-[10px] transition-all w-full absolute left-0  top-0 z-10 opacity-[5%]  h-full object-cover" src={img}></img>
     </div>
   )
 }
