@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 const ConstructMapData = (props) => {
-    const { APIData, setMapData } = props;
+    const { APIData, setMapData, setMapGraphData } = props;
 
     const mapData = [
         { name: APIData.maps[0].mapName, data: APIData.maps[0].winPercent },
@@ -11,6 +11,37 @@ const ConstructMapData = (props) => {
         { name: APIData.maps[4].mapName, data: APIData.maps[4].winPercent },
         { name: APIData.maps[5].mapName, data: APIData.maps[5].winPercent },
     ];
+
+    const maps = [];
+    const wins = [];
+    const losses = [];
+    const amountPlayed = [];
+
+    APIData.maps.map((m) => {
+        maps.push(m.mapName);
+        wins.push(m.wins);
+        losses.push(m.losses);
+        amountPlayed.push(m.matches);
+    })  
+
+    const mapGraphData = [
+        {
+        name: 'maps',
+        data: maps
+        },
+        {
+        name: 'wins',
+        data: wins
+        }, 
+        {
+        name: 'losses',
+        data: losses
+        }, 
+        {
+        name: 'amounPlayed',
+        data: amountPlayed
+        }]
+
 
     const sortedMapData = mapData.map(item => {
         const winRate = parseFloat(item.data.replace("%", ""));
@@ -22,6 +53,7 @@ const ConstructMapData = (props) => {
 
     console.log(sortedMapData)
     setMapData(sortedMapData);
+    setMapGraphData(mapGraphData)
 };
 
 export default ConstructMapData;

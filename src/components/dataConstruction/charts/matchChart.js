@@ -1,38 +1,26 @@
 import { useEffect } from "react"
 import { Chart } from "chart.js";
-const MatchChart = ({playerData}) => {
+const MatchChart = ({mapGraphData}) => {
     useEffect(() => {
         let ctx = document.getElementById('myChart').getContext('2d');
-        const maps = [];
-        const wins = [];
-        const losses = [];
-        const amountPlayed = [];
-        playerData.maps.map((m) => {
-            maps.push(m.mapName);
-            wins.push(m.wins);
-            losses.push(m.losses);
-            amountPlayed.push(m.matches);
-        })  
-
-  
-
+        console.log(mapGraphData)
 
         let matchChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: maps,
+                labels: mapGraphData[0].data,
                 datasets: [{
-                    data: amountPlayed,
+                    data: mapGraphData[3].data,
                     label: "Matches",
                     borderColor: "rgb(62,149,205)",
                     backgroundColor: "rgb(62,149,205,0.1)",
                 }, {
-                    data: wins,
+                    data: mapGraphData[1].data,
                     label: "Wins",
                     borderColor: "rgb(60,186,159)",
                     backgroundColor: "rgb(60,186,159,0.1)",
                 }, {
-                    data: losses,
+                    data: mapGraphData[2].data,
                     label: "Losses",
                     borderColor: "rgb(255,165,0)",
                     backgroundColor: "rgb(255,165,0,0.1)",
@@ -40,7 +28,7 @@ const MatchChart = ({playerData}) => {
                 ]
             },
         });
-    }, [])
+    }, [mapGraphData])
 
 
     return (

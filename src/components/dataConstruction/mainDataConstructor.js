@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ConstructClassData from "./constructors/classesConstructor";
 import ConstructMapData from "./constructors/mapConstructor";
 import ConstructCombatData from "./constructors/combatConstructor";
@@ -12,6 +12,7 @@ const ConstructData = (props) => {
     setObjectiveData,
     fetchedData,
     setGameModeData,
+    setMapGraphData,
     setClassData,
     setMapData,
     game
@@ -23,7 +24,7 @@ const ConstructData = (props) => {
         ConstructObjectiveData({ APIData, setObjectiveData, game });
         ConstructGameModeData({ APIData, setGameModeData });
         ConstructCombatData({ APIData, setCombatData, game });
-        ConstructMapData({ APIData, setMapData });
+        ConstructMapData({ APIData, setMapData, setMapGraphData });
         ConstructClassData({ APIData, setClassData, game });
       } else {
         ConstructObjectiveData({ APIData, setObjectiveData, game });

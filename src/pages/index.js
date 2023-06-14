@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from 'next/router';
 import Head from 'next/head'
-import MatchChart from "@/components/dataConstruction/charts/matchChart";
 
 import DataFetcher from "@/components/dataFetcher";
 import DisplayData from "@/components/displayData";
@@ -45,6 +44,8 @@ export default function Home() {
   const [gameModeData, setGameModeData] = useState();
   const [classData, setClassData] = useState();
   const [mapData, setMapData] = useState();
+  const [mapGraphData, setMapGraphData] = useState()
+  
   let img = ''
 
   useEffect(() => {
@@ -72,6 +73,7 @@ export default function Home() {
       setGameModeData={setGameModeData} 
       setClassData={setClassData}
       setMapData={setMapData}
+      setMapGraphData={setMapGraphData}
       />
       <Head>
         <title>{playerData?.userName} | {currentGame}</title>
@@ -94,26 +96,22 @@ export default function Home() {
             );
           })}
         </div>
-        <div className="flex flex-row relative z-20 xl:h-[300px]">
-          <div className={` bg-[#1E1E27] ${!playerData ? 'skeleton' : ''} rounded-[5px] w-full h-full p-5 gap-6`}>
-            {playerData && (
+        <div className={` flex-row ${!playerData ? ' flex skeleton' : 'hidden'} relative z-20 xl:h-[300px]`}>
+        <div className={` bg-[#1E1E27] ${!playerData ? 'skeleton' : 'hidden'} rounded-[5px] w-full h-full p-5 gap-6`}>
+        </div>
+        </div>
+        {playerData && (
                   <DisplayData 
                   combatData={combatData}
                   objectiveData={objectiveData}
                   gameModeData={gameModeData}
                   classData={classData}
                   mapData={mapData}
+                  mapGraphData={mapGraphData}
                   game={currentGame}
+                  playerData={playerData}
                   />
             )}
-          </div>
-
-        </div>
-        <div className={` bg-[#1E1E27] ${!playerData ? 'skeleton' : ''} rounded-[5px] w-1/2  h-[350px] p-5 gap-6`}>
-            {playerData && (
-              <MatchChart playerData={playerData}/>
-            )}
-          </div>
         <div className={`rounded-[10px] transition-all w-full min-w-full min-h-full absolute left-0 top-0 z-10 opacity-[5%] bg-no-repeat bg-cover ${img} h-full`} />
       </div>
     </>
