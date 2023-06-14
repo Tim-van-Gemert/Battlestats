@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from 'next/router';
 import Head from 'next/head'
+import MatchChart from "@/components/dataConstruction/charts/matchChart";
 
 import DataFetcher from "@/components/dataFetcher";
 import DisplayData from "@/components/displayData";
@@ -106,7 +107,13 @@ export default function Home() {
                   />
             )}
           </div>
+
         </div>
+        <div className={` bg-[#1E1E27] ${!playerData ? 'skeleton' : ''} rounded-[5px] w-1/2  h-[350px] p-5 gap-6`}>
+            {playerData && (
+              <MatchChart playerData={playerData}/>
+            )}
+          </div>
         <div className={`rounded-[10px] transition-all w-full min-w-full min-h-full absolute left-0 top-0 z-10 opacity-[5%] bg-no-repeat bg-cover ${img} h-full`} />
       </div>
     </>
