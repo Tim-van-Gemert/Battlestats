@@ -75,7 +75,7 @@ export default function Home() {
       <Head>
         <title>{playerData?.userName} | {currentGame}</title>
       </Head>
-      <div className="w-[1200px] z-20 mt-12 flex flex-col gap-6 h-full">
+      <div className={`xl:w-[1200px] z-20 mt-12 flex flex-col gap-6  h-full min-h-full`}>
         <div className="flex flex-row gap-6">
           <img src={playerData?.avatar} className={`h-[100px] w-[100px] relative z-20 rounded-[5px] bg-[#1E1E27] ${!playerData ? 'skeleton' : ''}`} />
           <div className="flex flex-col h-full gap-1 justify-center">
@@ -83,7 +83,7 @@ export default function Home() {
             <p className={`text-[18px] ${!playerData ? 'rounded-[5px] skeleton w-[100px] bg-[#1E1E27] h-[30px]' : ''} text-[#B4B4B4]`}>{playerData?.id}</p>
           </div>
         </div>
-        <div className="flex flex-row relative gap-6  z-20">
+        <div className="sm:flex-row flex-col flex relative text-[10px] sm:text-[18px] gap-6  z-20">
           {games.map((g) => {
             if (g.slug == router.query.game) {
               img = g.img
@@ -93,7 +93,7 @@ export default function Home() {
             );
           })}
         </div>
-        <div className="flex flex-row relative z-20 h-[300px]">
+        <div className="flex flex-row relative z-20 xl:h-[300px]">
           <div className={` bg-[#1E1E27] ${!playerData ? 'skeleton' : ''} rounded-[5px] w-full h-full p-5 gap-6`}>
             {playerData && (
                   <DisplayData 

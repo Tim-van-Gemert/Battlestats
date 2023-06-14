@@ -1,6 +1,6 @@
 const Header = () => {
     return (
-        <div className="text-white  flex-row py-5 flex w-[1200px]  items-center ">
+        <div className="text-white  flex-row py-5 flex xl:w-[1200px] w-full items-center ">
             <div className="flex justify-start uppercase text-[28px] ">BattleStat</div>
             <div className="w-full flex h-fit  justify-end">
                 <div className="group flex flex-col gap-1 w-fit z-30 relative  hover:cursor-pointer">

@@ -23,7 +23,7 @@ const DisplayData = (props) => {
     if (combatData && classData && objectiveData && gameModeData && classData
       ) {
       return (
-        <div className="grid grid-cols-5 gap-12 w-full h-full">
+        <div className="grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-12 min-w-full min-h-full w-full h-full">
           {renderDataSection(combatData, "Combat")}
           {renderDataSection(classData, "Classes", "(Play time)")}
           {renderDataSection(objectiveData, "Objective")} 
@@ -35,7 +35,7 @@ const DisplayData = (props) => {
   } else {
     if (combatData && classData && objectiveData) {
       return (
-        <div className="grid grid-cols-5 gap-12 w-full h-full">
+        <div className="grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-12 min-w-full min-h-full w-full h-full">
           {renderDataSection(combatData, "Combat")}
           {renderDataSection(classData, "Classes", "(Play time)")}
           {renderDataSection(objectiveData, "Objective")} 
