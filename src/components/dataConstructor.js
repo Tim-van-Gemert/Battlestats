@@ -32,12 +32,12 @@ const ConstructData = (props) => {
     ]
  
     const classData = [
-        { name: APIData.classes[0].characterName, data: APIData.classes[0].secondsPlayed },
-        { name: APIData.classes[1].characterName, data: APIData.classes[1].secondsPlayed },
-        { name: APIData.classes[2].characterName, data: APIData.classes[2].secondsPlayed },
-        { name: APIData.classes[3].characterName, data: APIData.classes[3].secondsPlayed },
-        { name: APIData.classes[4].characterName, data: APIData.classes[4].secondsPlayed },
-        { name: APIData.classes[5].characterName, data: APIData.classes[5].secondsPlayed },
+        { name: APIData.classes[0].characterName, data: Math.round(APIData.classes[0].secondsPlayed / 60 / 60) + 'H'},
+        { name: APIData.classes[1].characterName, data: Math.round(APIData.classes[1].secondsPlayed / 60 / 60) + 'H'},
+        { name: APIData.classes[2].characterName, data: Math.round(APIData.classes[2].secondsPlayed / 60 / 60) + 'H'},
+        { name: APIData.classes[3].characterName, data: Math.round(APIData.classes[3].secondsPlayed / 60 / 60) + 'H'},
+        { name: APIData.classes[4].characterName, data: Math.round(APIData.classes[4].secondsPlayed / 60 / 60) + 'H'},
+        { name: APIData.classes[5].characterName, data: Math.round(APIData.classes[5].secondsPlayed / 60 / 60) + 'H'},
     ]
 
     const mapData = [
