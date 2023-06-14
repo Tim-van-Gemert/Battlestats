@@ -26,9 +26,9 @@ const DisplayData = (props) => {
       <div className="grid grid-cols-5 gap-12 w-full h-full">
         {renderDataSection(combatData, "Combat")}
         {renderDataSection(classData, "Classes", "(Play time)")}
-        {/* {renderDataSection(objectiveData, "Objective")}
-        {renderDataSection(gameModeData, "Game Modes", "(Win rate)")}
-        {renderDataSection(mapData, "Maps", "(Win rate)")}  */}
+        {renderDataSection(objectiveData, "Objective")}
+        {/* {renderDataSection(gameModeData, "Game Modes", "(Win rate)")}
+        {renderDataSection(mapData, "Maps", "(Win rate)")}   */}
       </div>
     );
   }

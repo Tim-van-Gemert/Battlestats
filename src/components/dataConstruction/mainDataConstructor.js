@@ -10,7 +10,7 @@ const ConstructData = (props) => {
 
 
       useEffect(()=>{
-        // ConstructObjectiveData({APIData, setObjectiveData})
+        ConstructObjectiveData({APIData, setObjectiveData})
         // ConstructGameModeData({APIData, setGameModeData})
         ConstructCombatData({APIData, setCombatData, game})
         // ConstructMapData({APIData, setMapData})

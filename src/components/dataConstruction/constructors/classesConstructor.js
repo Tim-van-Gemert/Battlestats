@@ -6,13 +6,13 @@ const ConstructClassData = (props) => {
   console.log(APIData)
 
   if (game == 'bf2042') {
-  classData = APIData.classes
-    .sort((a, b) => b.secondsPlayed - a.secondsPlayed)
-    .slice(0, 6)
-    .map((item) => ({
-      name: item.characterName,
-      data: Math.round(item.secondsPlayed / 60 / 60) + "H",
-    }));
+    classData = APIData.classes
+      .sort((a, b) => b.secondsPlayed - a.secondsPlayed)
+      .slice(0, 6)
+      .map((item) => ({
+        name: item.characterName,
+        data: Math.round(item.secondsPlayed / 60 / 60) + "H",
+      }));
   } else {
     classData = [
       { name: 'Best Class', data: APIData.bestClass },
@@ -24,7 +24,7 @@ const ConstructClassData = (props) => {
     ]
   }
   if (classData != undefined) {
-  setClassData(classData);
+    setClassData(classData);
   }
 
 };
