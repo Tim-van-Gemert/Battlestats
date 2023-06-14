@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from 'next/router';
+import Head from 'next/head'
 
 import DataFetcher from "@/components/dataFetcher";
 import DisplayData from "@/components/displayData";
@@ -71,7 +72,9 @@ export default function Home() {
       setClassData={setClassData}
       setMapData={setMapData}
       />
-
+      <Head>
+        <title>{playerData?.userName} | {currentGame}</title>
+      </Head>
       <div className="w-[1200px] z-20 mt-12 flex flex-col gap-6 h-full">
         <div className="flex flex-row gap-6">
           <img src={playerData?.avatar} className={`h-[100px] w-[100px] relative z-20 rounded-[5px] bg-[#1E1E27] ${!playerData ? 'skeleton' : ''}`} />
