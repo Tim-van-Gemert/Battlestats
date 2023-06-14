@@ -1,7 +1,8 @@
 import React from "react";
 import MatchChart from "@/components/dataConstruction/charts/matchChart";
+import OperatorChart from "@/components/dataConstruction/charts/operatorChart";
 
-const DisplayData = ({ combatData, objectiveData, gameModeData, classData, mapData, game, mapGraphData, playerData }) => {
+const DisplayData = ({ combatData, objectiveData, gameModeData, classData, mapData, game, mapGraphData, playerData, operatorGraphData}) => {
   const renderDataSection = (data, title, subtitle) => {
     return (
       <div className="flex flex-col col-span-1 justify-between">
@@ -40,7 +41,7 @@ const DisplayData = ({ combatData, objectiveData, gameModeData, classData, mapDa
         </div>
 
         <div className={`bg-[#1E1E27] ${!playerData ? 'skeleton' : ''} rounded-[5px] relative z-20 w-1/2 h-[350px] p-5 gap-6`}>
-          <MatchChart mapGraphData={mapGraphData} />
+          <OperatorChart operatorGraphData={operatorGraphData} />
         </div>
         </div>
   

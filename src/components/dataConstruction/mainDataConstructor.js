@@ -15,6 +15,7 @@ const ConstructData = (props) => {
     setMapGraphData,
     setClassData,
     setMapData,
+    setOperatorGraphData,
     game
   } = props;
 
@@ -25,7 +26,7 @@ const ConstructData = (props) => {
         ConstructGameModeData({ APIData, setGameModeData });
         ConstructCombatData({ APIData, setCombatData, game });
         ConstructMapData({ APIData, setMapData, setMapGraphData });
-        ConstructClassData({ APIData, setClassData, game });
+        ConstructClassData({ APIData, setClassData, game, setOperatorGraphData });
       } else {
         ConstructObjectiveData({ APIData, setObjectiveData, game });
         ConstructCombatData({ APIData, setCombatData, game });

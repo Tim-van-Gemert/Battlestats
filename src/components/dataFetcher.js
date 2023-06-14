@@ -37,6 +37,7 @@ const DataFetcher = (props) => {
       setClassData={props.setClassData}
       setMapData={props.setMapData}
       setMapGraphData={props.setMapGraphData}
+      setOperatorGraphData={props.setOperatorGraphData}
       game={props.game}
       />
     )

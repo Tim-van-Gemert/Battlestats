@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 const ConstructClassData = (props) => {
-  const { APIData, setClassData, game } = props;
+  const { APIData, setClassData, game, setOperatorGraphData } = props;
   let classData;
   console.log(game)
   console.log(APIData)
@@ -14,6 +14,18 @@ const ConstructClassData = (props) => {
           name: item.characterName,
           data: Math.round(item.secondsPlayed / 60 / 60) + "H",
         }));
+      const operators = []
+      APIData.classes.map((o)=>{
+        console.log(o)
+        operators.push({
+          name: o.characterName,
+          kills: o.kills
+        })
+      })
+
+      const graphData = operators
+      setOperatorGraphData(graphData)
+        
     } else {
       classData = [
         { name: 'Best Class', data: APIData.bestClass || 0},

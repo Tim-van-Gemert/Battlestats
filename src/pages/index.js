@@ -45,6 +45,7 @@ export default function Home() {
   const [classData, setClassData] = useState();
   const [mapData, setMapData] = useState();
   const [mapGraphData, setMapGraphData] = useState()
+  const [operatorGraphData, setOperatorGraphData] = useState()
   
   let img = ''
 
@@ -55,7 +56,7 @@ export default function Home() {
   if (router.query.game == undefined)  {
     router.query.game = 'bf2042'
   }
-  console.log(router.query.game)
+
 
   useEffect(() => {
 
@@ -74,6 +75,7 @@ export default function Home() {
       setClassData={setClassData}
       setMapData={setMapData}
       setMapGraphData={setMapGraphData}
+      setOperatorGraphData={setOperatorGraphData}
       />
       <Head>
         <title>{playerData?.userName} | {currentGame}</title>
@@ -110,6 +112,7 @@ export default function Home() {
                   mapGraphData={mapGraphData}
                   game={currentGame}
                   playerData={playerData}
+                  operatorGraphData={operatorGraphData}
                   />
             )}
 
