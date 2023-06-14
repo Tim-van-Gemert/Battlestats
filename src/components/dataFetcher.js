@@ -4,11 +4,15 @@ import MainDataConstructor from "./dataConstruction/mainDataConstructor";
 
 const DataFetcher = (props) => {
   const [fetchedData, setFetchedData] = useState()
+
   useEffect(() => {
+    if (props.game != undefined) {
+
+  
     props.players.forEach((player) => {
       axios
         .get(
-          `https://api.gametools.network/bf2042/stats/?raw=false&format_values=true&name=${player}&platform=pc&skip_battlelog=false`
+          `https://api.gametools.network/${props.game}/stats/?raw=false&format_values=true&name=${player}&platform=pc&skip_battlelog=false`
         )
         .then((response) => {
           // return raw data
@@ -20,6 +24,7 @@ const DataFetcher = (props) => {
           console.error(error);
         });
     });
+  }
   }, [props.game]);
   
   if (fetchedData != undefined) {
@@ -31,9 +36,10 @@ const DataFetcher = (props) => {
       setGameModeData={props.setGameModeData}
       setClassData={props.setClassData}
       setMapData={props.setMapData}
+      game={props.game}
       />
     )
-  }
+  } 
 
 };
 

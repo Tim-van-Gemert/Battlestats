@@ -6,14 +6,14 @@ import ConstructObjectiveData from "./constructors/objectiveConstructor";
 import ConstructGameModeData from "./constructors/gamemodeConstructor";
 
 const ConstructData = (props) => {
-  const { APIData, setCombatData, setObjectiveData, fetchedData, setGameModeData, setClassData, setMapData } = props;
+  const { APIData, setCombatData, setObjectiveData, fetchedData, setGameModeData, setClassData, setMapData, game } = props;
 
 
       useEffect(()=>{
-        ConstructObjectiveData({APIData, setObjectiveData})
-        ConstructGameModeData({APIData, setGameModeData})
-        ConstructCombatData({APIData, setCombatData})
-        ConstructMapData({APIData, setMapData})
+        // ConstructObjectiveData({APIData, setObjectiveData})
+        // ConstructGameModeData({APIData, setGameModeData})
+        ConstructCombatData({APIData, setCombatData, game})
+        // ConstructMapData({APIData, setMapData})
         ConstructClassData({APIData, setClassData})
       },[APIData])
     

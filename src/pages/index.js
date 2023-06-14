@@ -8,27 +8,27 @@ import DisplayData from "@/components/displayData";
 const games = [
   {
     name: 'Battlefield 2042',
-    slug: 'Battlefield_2042',
+    slug: 'bf2042',
     img: "bg-[url('/bf2042.png')]",
   },
   {
     name: 'Battlefield V',
-    slug: 'Battlefield_v',
+    slug: 'bfv',
     img: "bg-[url('/bfv.jpg')]",
   },
   {
     name: 'Battlefield 4',
-    slug: 'Battlefield_4',
+    slug: 'bf4',
     img: "bg-[url('/bf4.jpg')]",
   },
   {
     name: 'Battlefield 1',
-    slug: 'Battlefield_1',
+    slug: 'bf1',
     img: "bg-[url('/bf1.jpg')]",
   },
   {
     name: 'Battlefield Hardline',
-    slug: 'Battlefield_hardline',
+    slug: 'bfh',
     img: "bg-[url('/bfh.jpg')]",
   },
 ];
@@ -87,7 +87,7 @@ export default function Home() {
         </div>
         <div className="flex flex-row relative z-20 h-[300px]">
           <div className={` bg-[#1E1E27] ${!playerData ? 'skeleton' : ''} rounded-[5px] w-full h-full p-5 gap-6`}>
-            {currentGame == 'Battlefield_2042' && playerData && (
+            {playerData && (
                   <DisplayData 
                   combatData={combatData}
                   objectiveData={objectiveData}
