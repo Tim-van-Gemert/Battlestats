@@ -78,7 +78,7 @@ export default function Home() {
       <Head>
         <title>{playerData?.userName} | {currentGame}</title>
       </Head>
-      <div className={`xl:w-[1200px] z-20 mt-12 flex flex-col gap-6  h-full min-h-full`}>
+      <div className={`xl:w-[1200px]  z-20 mt-12 flex flex-col gap-6  h-[100%] min-h-[100%] pb-20`}>
         <div className="flex flex-row gap-6">
           <img src={playerData?.avatar} className={`h-[100px] w-[100px] relative z-20 rounded-[5px] bg-[#1E1E27] ${!playerData ? 'skeleton' : ''}`} />
           <div className="flex flex-col h-full gap-1 justify-center">
@@ -112,7 +112,10 @@ export default function Home() {
                   playerData={playerData}
                   />
             )}
-        <div className={`rounded-[10px] transition-all w-full min-w-full min-h-full absolute left-0 top-0 z-10 opacity-[5%] bg-no-repeat bg-cover ${img} h-full`} />
+
+          <div className={`rounded-[10px] transition-all h-screen w-screen absolute left-0 top-0 z-[9] opacity-[10%] bg-no-repeat bg-cover ${img}`}/>
+          <div className="rounded-[10px] transition-all h-screen w-screen absolute left-0 top-0 z-[10]  bg-no-repeat bg-cover bg-gradient-to-t from-[#0F111C] via-transparant to-transparant" />
+
       </div>
     </>
   );

@@ -26,20 +26,29 @@ const ConstructMapData = (props) => {
 
     const mapGraphData = [
         {
-        name: 'maps',
-        data: maps
+        name: 'Maps',
+        data: maps,
+        borderColor: "rgb(62,149,205)",
+        backgroundColor: "rgb(62,149,205,0.1)",
         },
         {
-        name: 'wins',
-        data: wins
+        name: 'Wins',
+        data: wins,
+        borderColor: "rgb(64, 230, 108)",
+        backgroundColor: "rgb(64, 230, 108,0.1)",
         }, 
         {
-        name: 'losses',
-        data: losses
+        name: 'Losses',
+        data: losses,
+  
+        borderColor: "rgb(245, 69, 69)",
+        backgroundColor: "rgb(245, 69, 69,0.1)",
         }, 
         {
-        name: 'amounPlayed',
-        data: amountPlayed
+        name: 'Matches',
+        data: amountPlayed,
+        borderColor: "rgb(62,149,205)",
+        backgroundColor: "rgb(62,149,205,0.1)",
         }]
 
 
