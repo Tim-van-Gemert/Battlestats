@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 const ConstructData = (props) => {
-  const { APIData, setCombatData, setObjectiveData, fetchedData, setGameModeData } = props;
+  const { APIData, setCombatData, setObjectiveData, fetchedData, setGameModeData, setClassData, setMapData } = props;
 
   useEffect(() => {
     const combatData = [
@@ -30,10 +30,30 @@ const ConstructData = (props) => {
         { name: 'Portal', data: APIData.gamemodes[4].winPercent },
         { name: APIData.gamemodes[5].gamemodeName, data: APIData.gamemodes[5].winPercent },
     ]
+ 
+    const classData = [
+        { name: APIData.classes[0].characterName, data: APIData.classes[0].secondsPlayed },
+        { name: APIData.classes[1].characterName, data: APIData.classes[1].secondsPlayed },
+        { name: APIData.classes[2].characterName, data: APIData.classes[2].secondsPlayed },
+        { name: APIData.classes[3].characterName, data: APIData.classes[3].secondsPlayed },
+        { name: APIData.classes[4].characterName, data: APIData.classes[4].secondsPlayed },
+        { name: APIData.classes[5].characterName, data: APIData.classes[5].secondsPlayed },
+    ]
+
+    const mapData = [
+        { name: APIData.maps[0].mapName, data: APIData.maps[0].winPercent },
+        { name: APIData.maps[1].mapName, data: APIData.maps[1].winPercent },
+        { name: APIData.maps[2].mapName, data: APIData.maps[2].winPercent },
+        { name: APIData.maps[3].mapName, data: APIData.maps[3].winPercent },
+        { name: APIData.maps[4].mapName, data: APIData.maps[4].winPercent },
+        { name: APIData.maps[5].mapName, data: APIData.maps[5].winPercent },
+    ]
 
     setGameModeData(gameModeData)
     setCombatData(combatData);
     setObjectiveData(objectiveData);
+    setClassData(classData)
+    setMapData(mapData)
   }, [APIData, setCombatData, setObjectiveData, fetchedData]);
 
   return null; // Assuming this component is only responsible for side effects

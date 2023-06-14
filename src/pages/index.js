@@ -39,8 +39,10 @@ export default function Home() {
   const [currentGame, setCurrentGame] = useState();
   const [combatData, setCombatData] = useState();
   const [bestWeapon, setBestWeapon] = useState();
-  const [objectiveData, setObjectiveData] = useState()
+  const [objectiveData, setObjectiveData] = useState();
   const [gameModeData, setGameModeData] = useState();
+  const [classData, setClassData] = useState();
+  const [mapData, setMapData] = useState();
   let img = ''
 
   useEffect(() => {
@@ -60,7 +62,11 @@ export default function Home() {
       setObjectiveData={setObjectiveData} 
       game={currentGame} 
       setCombatData={setCombatData}
-      setGameModeData={setGameModeData} />
+      setGameModeData={setGameModeData} 
+      setClassData={setClassData}
+      setMapData={setMapData}
+      />
+
       <div className="w-[1200px] z-20 mt-12 flex flex-col gap-6 h-full">
         <div className="flex flex-row gap-6">
           <img src={playerData?.avatar} className={`h-[100px] w-[100px] relative z-20 rounded-[5px] bg-[#1E1E27] ${!playerData ? 'skeleton' : ''}`} />
@@ -86,6 +92,8 @@ export default function Home() {
                   combatData={combatData}
                   objectiveData={objectiveData}
                   gameModeData={gameModeData}
+                  classData={classData}
+                  mapData={mapData}
                   />
             )}
           </div>

@@ -30,6 +30,8 @@ const DataFetcher = (props) => {
       setObjectiveData={props.setObjectiveData} 
       setCombatData={props.setCombatData}
       setGameModeData={props.setGameModeData}
+      setClassData={props.setClassData}
+      setMapData={props.setMapData}
       />
     )
   }
