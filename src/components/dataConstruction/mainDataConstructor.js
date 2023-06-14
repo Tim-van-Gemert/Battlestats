@@ -6,32 +6,32 @@ import ConstructObjectiveData from "./constructors/objectiveConstructor";
 import ConstructGameModeData from "./constructors/gamemodeConstructor";
 
 const ConstructData = (props) => {
-  const { APIData, setCombatData, setObjectiveData, fetchedData, setGameModeData, setClassData, setMapData, game } = props;
-    if (game != undefined) {
-      if (game == 'bf2042') {
-        useEffect(()=>{
-          ConstructObjectiveData({APIData, setObjectiveData, game})
-          ConstructGameModeData({APIData, setGameModeData})
-          ConstructCombatData({APIData, setCombatData, game})
-          ConstructMapData({APIData, setMapData})
-          ConstructClassData({APIData, setClassData, game})
-        },[APIData])
+  const {
+    APIData,
+    setCombatData,
+    setObjectiveData,
+    fetchedData,
+    setGameModeData,
+    setClassData,
+    setMapData,
+    game
+  } = props;
+
+  useEffect(() => {
+    if (game !== undefined) {
+      if (game === "bf2042") {
+        ConstructObjectiveData({ APIData, setObjectiveData, game });
+        ConstructGameModeData({ APIData, setGameModeData });
+        ConstructCombatData({ APIData, setCombatData, game });
+        ConstructMapData({ APIData, setMapData });
+        ConstructClassData({ APIData, setClassData, game });
       } else {
-        useEffect(()=>{
-          ConstructObjectiveData({APIData, setObjectiveData, game})
-          ConstructCombatData({APIData, setCombatData, game})
-          ConstructClassData({APIData, setClassData, game})
-        },[APIData])
+        ConstructObjectiveData({ APIData, setObjectiveData, game });
+        ConstructCombatData({ APIData, setCombatData, game });
+        ConstructClassData({ APIData, setClassData, game });
       }
     }
-
-    
-  
-
-    
-    
-  
-  
+  }, [APIData, game]);
 
   return null; // Assuming this component is only responsible for side effects
 };
