@@ -31,7 +31,7 @@ const ConstructData = (props) => {
         ConstructClassData({ APIData, setClassData, game });
       }
     }
-  }, [APIData, game]);
+  }, [APIData]);
 
   return null; // Assuming this component is only responsible for side effects
 };
