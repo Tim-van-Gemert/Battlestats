@@ -1,7 +1,7 @@
 import React from "react";
 
 const DisplayData = (props) => {
-  const { combatData, objectiveData, gameModeData, classData, mapData } = props;
+  const { combatData, objectiveData, gameModeData, classData, mapData, game } = props;
   const renderDataSection = (data, title, subtitle) => {
     return (
       <div className="flex flex-col col-span-1 justify-between">
@@ -19,19 +19,32 @@ const DisplayData = (props) => {
     );
   };  
 
-  if (combatData && classData
-    // && objectiveData && gameModeData && classData
-    ) {
-    return (
-      <div className="grid grid-cols-5 gap-12 w-full h-full">
-        {renderDataSection(combatData, "Combat")}
-        {renderDataSection(classData, "Classes", "(Play time)")}
-        {renderDataSection(objectiveData, "Objective")}
-        {/* {renderDataSection(gameModeData, "Game Modes", "(Win rate)")}
-        {renderDataSection(mapData, "Maps", "(Win rate)")}   */}
-      </div>
-    );
+  if (game != undefined && game == 'bf2042') {
+    if (combatData && classData && objectiveData && gameModeData && classData
+      ) {
+      return (
+        <div className="grid grid-cols-5 gap-12 w-full h-full">
+          {renderDataSection(combatData, "Combat")}
+          {renderDataSection(classData, "Classes", "(Play time)")}
+          {renderDataSection(objectiveData, "Objective")} 
+          {renderDataSection(gameModeData, "Game Modes", "(Win rate)")}
+          {renderDataSection(mapData, "Maps", "(Win rate)")}  
+        </div>
+      );
+    }
+  } else {
+    if (combatData && classData && objectiveData) {
+      return (
+        <div className="grid grid-cols-5 gap-12 w-full h-full">
+          {renderDataSection(combatData, "Combat")}
+          {renderDataSection(classData, "Classes", "(Play time)")}
+          {renderDataSection(objectiveData, "Objective")} 
+        </div>
+      );
+    }
   }
+
+
 
   return null;
 };

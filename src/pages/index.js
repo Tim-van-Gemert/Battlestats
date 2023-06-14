@@ -94,6 +94,7 @@ export default function Home() {
                   gameModeData={gameModeData}
                   classData={classData}
                   mapData={mapData}
+                  game={router.query.game}
                   />
             )}
           </div>
