@@ -49,6 +49,11 @@ export default function Home() {
     setCurrentGame(router.query.game);
   }, [router.query.game]);
 
+  if (router.query.game == undefined)  {
+    router.query.game = 'bf2042'
+  }
+  console.log(router.query.game)
+
   useEffect(() => {
 
   }, [bestWeapon])
@@ -70,7 +75,7 @@ export default function Home() {
       <div className="w-[1200px] z-20 mt-12 flex flex-col gap-6 h-full">
         <div className="flex flex-row gap-6">
           <img src={playerData?.avatar} className={`h-[100px] w-[100px] relative z-20 rounded-[5px] bg-[#1E1E27] ${!playerData ? 'skeleton' : ''}`} />
-          <div className="flex flex-col h-full justify-center">
+          <div className="flex flex-col h-full gap-1 justify-center">
             <h1 className={`text-[24px] ${!playerData ? 'rounded-[5px] skeleton w-[200px] bg-[#1E1E27] h-[30px]' : ''}`}>{playerData?.userName}</h1>
             <p className={`text-[18px] ${!playerData ? 'rounded-[5px] skeleton w-[100px] bg-[#1E1E27] h-[30px]' : ''} text-[#B4B4B4]`}>{playerData?.id}</p>
           </div>
@@ -94,7 +99,7 @@ export default function Home() {
                   gameModeData={gameModeData}
                   classData={classData}
                   mapData={mapData}
-                  game={router.query.game}
+                  game={currentGame}
                   />
             )}
           </div>
