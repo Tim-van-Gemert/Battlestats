@@ -2,12 +2,12 @@ const ConstructGameModeData = (props) => {
   const { APIData, setGameModeData } = props;
 
     const gameModeData = [
-      { name: APIData.gamemodes[0].gamemodeName, data: APIData.gamemodes[0].winPercent },
-      { name: 'Breakthrough S', data: APIData.gamemodes[1].winPercent },
-      { name: APIData.gamemodes[2].gamemodeName, data: APIData.gamemodes[2].winPercent },
-      { name: 'Conquest S', data: APIData.gamemodes[3].winPercent },
-      { name: 'Portal', data: APIData.gamemodes[4].winPercent },
-      { name: APIData.gamemodes[5].gamemodeName, data: APIData.gamemodes[5].winPercent },
+      { name: APIData.gamemodes[0].gamemodeName, data: APIData.gamemodes[0].winPercent || 0 },
+      { name: 'Breakthrough S', data: APIData.gamemodes[1].winPercent || 0 },
+      { name: APIData.gamemodes[2].gamemodeName, data: APIData.gamemodes[2].winPercent || 0 },
+      { name: 'Conquest S', data: APIData.gamemodes[3].winPercent || 0},
+      { name: 'Portal', data: APIData.gamemodes[4].winPercent || 0},
+      { name: APIData.gamemodes[5].gamemodeName, data: APIData.gamemodes[5].winPercent || 0},
     ];
 
     const sortedGameModeData = gameModeData.map(item => {

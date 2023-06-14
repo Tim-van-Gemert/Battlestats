@@ -16,12 +16,12 @@ const ConstructClassData = (props) => {
         }));
     } else {
       classData = [
-        { name: 'Best Class', data: APIData.bestClass },
-        { name: 'Repairs', data: APIData.repairs },
-        { name: 'Revives', data: APIData.revives },
-        { name: 'Heals', data: APIData.heals },
-        { name: 'Skill', data: APIData.kills },
-        { name: 'Headshot L', data: APIData.longestHeadShot },
+        { name: 'Best Class', data: APIData.bestClass || 0},
+        { name: 'Repairs', data: APIData.repairs || 0},
+        { name: 'Revives', data: APIData.revives || 0},
+        { name: 'Heals', data: APIData.heals || 0},
+        { name: 'Skill', data: APIData.kills || 0},
+        { name: 'Headshot L', data: APIData.longestHeadShot || 0},
       ]
     }
   }
