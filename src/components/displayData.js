@@ -19,7 +19,7 @@ const DisplayData = (props) => {
     );
   };  
 
-  if (combatData 
+  if (combatData && classData
     // && objectiveData && gameModeData && classData
     ) {
     return (

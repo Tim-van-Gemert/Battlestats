@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 
 const ConstructObjectiveData = (props) => {
-    const { APIData, setObjectiveData, game } = props;
-    console.log(APIData)
-    let objectiveData;
+  const { APIData, setObjectiveData, game } = props;
+  console.log(APIData)
+  let objectiveData;
+  if (game != undefined) {
     if (game == 'bf2042') {
-    objectiveData = [
+      objectiveData = [
         { name: 'Captured', data: APIData.objective.captured },
         { name: 'Neutralized', data: APIData.objective.neutralized },
         { name: 'Defused', data: APIData.objective.defused },
@@ -23,10 +24,11 @@ const ConstructObjectiveData = (props) => {
         { name: 'Rank progress', data: APIData.currentRankProgress }
       ];
     }
-    if (objectiveData != undefined) {
+  }
+  if (game != undefined && objectiveData != undefined) {
     // const sortedObjectiveData = objectiveData.sort((a, b) => b.data - a.data);
     setObjectiveData(objectiveData);
-    }
+  }
 
 };
 
