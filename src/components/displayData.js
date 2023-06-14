@@ -33,9 +33,17 @@ const DisplayData = ({ combatData, objectiveData, gameModeData, classData, mapDa
             </div>
           </div>
         </div>
+        <div className="w-full flex flex-row gap-6">
+
         <div className={`bg-[#1E1E27] ${!playerData ? 'skeleton' : ''} rounded-[5px] relative z-20 w-1/2 h-[350px] p-5 gap-6`}>
           <MatchChart mapGraphData={mapGraphData} />
         </div>
+
+        <div className={`bg-[#1E1E27] ${!playerData ? 'skeleton' : ''} rounded-[5px] relative z-20 w-1/2 h-[350px] p-5 gap-6`}>
+          <MatchChart mapGraphData={mapGraphData} />
+        </div>
+        </div>
+  
       </>
     );
   } else if (combatData && classData && objectiveData) {
