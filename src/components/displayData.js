@@ -2,7 +2,6 @@ import React from "react";
 
 const DisplayData = (props) => {
   const { combatData, objectiveData, gameModeData, classData, mapData } = props;
-
   const renderDataSection = (data, title, subtitle) => {
     return (
       <div className="flex flex-col col-span-1 justify-between">
@@ -18,7 +17,7 @@ const DisplayData = (props) => {
         ))}
       </div>
     );
-  };
+  };  
 
   if (combatData && objectiveData && gameModeData && classData) {
     return (

@@ -11,7 +11,6 @@ const DataFetcher = (props) => {
           `https://api.gametools.network/bf2042/stats/?raw=false&format_values=true&name=${player}&platform=pc&skip_battlelog=false`
         )
         .then((response) => {
-          console.log(response.data)
           // return raw data
           props.setPlayerData(response.data)
           // send data to constructor
@@ -22,7 +21,7 @@ const DataFetcher = (props) => {
         });
     });
   }, [props.game]);
-
+  
   if (fetchedData != undefined) {
     return (
       <MainDataConstructor 

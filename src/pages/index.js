@@ -50,7 +50,7 @@ export default function Home() {
   }, [router.query.game]);
 
   useEffect(() => {
-    console.log(bestWeapon)
+
   }, [bestWeapon])
 
 
