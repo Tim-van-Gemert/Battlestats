@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import ConstructData from "./dataConstructor";
+import MainDataConstructor from "./dataConstruction/mainDataConstructor";
 
 const DataFetcher = (props) => {
   const [fetchedData, setFetchedData] = useState()
@@ -25,7 +25,7 @@ const DataFetcher = (props) => {
 
   if (fetchedData != undefined) {
     return (
-      <ConstructData 
+      <MainDataConstructor 
       APIData={fetchedData} 
       setObjectiveData={props.setObjectiveData} 
       setCombatData={props.setCombatData}
