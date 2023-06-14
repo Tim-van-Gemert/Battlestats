@@ -39,6 +39,8 @@ export default function Home() {
   const [currentGame, setCurrentGame] = useState();
   const [combatData, setCombatData] = useState();
   const [bestWeapon, setBestWeapon] = useState();
+  const [objectiveData, setObjectiveData] = useState()
+  const [gameModeData, setGameModeData] = useState();
   let img = ''
 
   useEffect(() => {
@@ -52,7 +54,13 @@ export default function Home() {
 
   return (
     <>
-      <DataFetcher players={['TIMMMAHHHHHH']} setPlayerData={setPlayerData} setBestWeapon={setBestWeapon} game={currentGame} setCombatData={setCombatData} />
+      <DataFetcher 
+      players={['TIMMMAHHHHHH']} 
+      setPlayerData={setPlayerData} 
+      setObjectiveData={setObjectiveData} 
+      game={currentGame} 
+      setCombatData={setCombatData}
+      setGameModeData={setGameModeData} />
       <div className="w-[1200px] z-20 mt-12 flex flex-col gap-6 h-full">
         <div className="flex flex-row gap-6">
           <img src={playerData?.avatar} className={`h-[100px] w-[100px] relative z-20 rounded-[5px] bg-[#1E1E27] ${!playerData ? 'skeleton' : ''}`} />
@@ -74,40 +82,11 @@ export default function Home() {
         <div className="flex flex-row relative z-20 h-[300px]">
           <div className={` bg-[#1E1E27] ${!playerData ? 'skeleton' : ''} rounded-[5px] w-full h-full p-5 gap-6`}>
             {playerData && (
-              <div className="grid grid-cols-3 gap-12   w-full h-full">
-                <div className="flex flex-col justify-between">
-                  <div className="font-bold">Combat</div>
-                  <DisplayData APIData={combatData} />
-                </div>
-                <div className="flex flex-col justify-between col-span-2">
-                  <div className="font-bold">Best Weapons</div>
-                  <div className="flex flex-row gap-12">
-                  {bestWeapon?.map((bw) => {
-                    return (
-                      <div className="flex flex-col  gap-2">
-                        <div className="flex flex-row  gap-4">
-                          <div className="flex flex-row ">
-                            <div className="text-[#B4B4B4]"> Name :</div> <div>{bw.name}</div>
-                          </div>
-                          <div className="flex flex-row">
-                            <div className="text-[#B4B4B4]"> Type :</div> <div>{bw.type}</div>
-                          </div>
-                          <div className="flex flex-row">
-                            <div className="text-[#B4B4B4]"> Kills :</div> <div>{bw.kills}</div>
-                          </div>
-                          <div className="flex flex-row">
-                            <div className="text-[#B4B4B4]"> Times :</div> <div>{bw.timeEquiped}</div>
-                          </div>
-                          
-                        </div>
-                        <img className="w-full h-[150px]" src={bw.img} />
-
-                      </div>
-                    )
-                  })}
-                  </div>
-                </div>
-              </div>
+                  <DisplayData 
+                  combatData={combatData}
+                  objectiveData={objectiveData}
+                  gameModeData={gameModeData}
+                  />
             )}
           </div>
         </div>
@@ -116,3 +95,33 @@ export default function Home() {
     </>
   );
 }
+
+
+// <div className="flex flex-col justify-between col-span-2">
+// <div className="font-bold">Best Weapons</div>
+// <div className="flex flex-row gap-12">
+// {bestWeapon?.map((bw) => {
+//   return (
+//     <div className="flex flex-col  gap-2">
+//       <div className="flex flex-row  gap-4">
+//         <div className="flex flex-row ">
+//           <div className="text-[#B4B4B4]"> Name :</div> <div>{bw.name}</div>
+//         </div>
+//         <div className="flex flex-row">
+//           <div className="text-[#B4B4B4]"> Type :</div> <div>{bw.type}</div>
+//         </div>
+//         <div className="flex flex-row">
+//           <div className="text-[#B4B4B4]"> Kills :</div> <div>{bw.kills}</div>
+//         </div>
+//         <div className="flex flex-row">
+//           <div className="text-[#B4B4B4]"> Times :</div> <div>{bw.timeEquiped}</div>
+//         </div>
+        
+//       </div>
+//       <img className="w-full h-[150px]" src={bw.img} />
+
+//     </div>
+//   )
+// })}
+// </div>
+// </div>
