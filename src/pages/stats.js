@@ -51,8 +51,8 @@ export default function Stats() {
   const [operatorGraphData, setOperatorGraphData] = useState()
   const [openMenu, setOpenMenu] = useState(false)
   const [selectedMobileMenuItem, setSelectedMobileMenuItem] = useState()
+  const [img, setImg] = useState()
 
-  let img = '';
 
   useEffect(() => {
     setCurrentGame(router.query.game);
@@ -94,7 +94,7 @@ export default function Stats() {
         <Head>
           <title>{playerData?.userName} | {currentGame}</title>
         </Head>
-        <div className={`xl:w-[1200px]  z-20 mt-12 flex flex-col gap-6  h-[100%] min-h-[100%] pb-20`}>
+        <div className={`xl:w-[1200px] w-full z-20 mt-12 flex flex-col gap-6  h-[100%] min-h-[100%] pb-20`}>
           <Link className="relative z-20 text-[#B4B4B4] w-fit flex flex-row gap-2 items-center group" href={'/'}><FontAwesomeIcon className="group-hover:-translate-x-1 h-[12px] transition-all" icon={faArrowLeft} /><div>Back to home</div></Link>
           <div className="flex flex-row gap-6">
             <img  border="0" src={playerData?.avatar} className={`h-[100px] w-[100px] relative z-20 rounded-[5px] bg-[#1E1E27] ${!playerData ? 'skeleton' : ''}`} />
@@ -103,7 +103,7 @@ export default function Stats() {
               <p className={`text-[18px] ${!playerData ? 'rounded-[5px] skeleton w-[100px] bg-[#1E1E27] h-[30px]' : ''} text-[#B4B4B4]`}>{playerData?.id}</p>
             </div>
           </div>
-            <GameSelection platform={platform} userName={userName} playerData={playerData} setOpenMenu={setOpenMenu} openMenu={openMenu} games={games} img={img}/>
+            <GameSelection platform={platform} userName={userName} playerData={playerData} setOpenMenu={setOpenMenu} openMenu={openMenu} games={games} setImg={setImg}/>
           <div className={` flex-row ${!playerData ? ' flex skeleton' : 'hidden'} relative z-20 xl:h-[300px]`}>
             <div className={` bg-[#1E1E27] ${!playerData ? 'skeleton' : 'hidden'} rounded-[5px] w-full h-full p-5 gap-6`}>
             </div>

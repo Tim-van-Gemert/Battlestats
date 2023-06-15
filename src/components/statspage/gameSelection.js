@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from 'next/router';
 import { motion } from "framer-motion";
 
-const GameSelection = ({ platform, userName, playerData, openMenu, setOpenMenu, games }) => {
+const GameSelection = ({ platform, userName, playerData, openMenu, setOpenMenu, games, setImg }) => {
   const router = useRouter();
 
   const menuItemsVariants = {
@@ -34,7 +34,12 @@ const GameSelection = ({ platform, userName, playerData, openMenu, setOpenMenu, 
       </div>
       <div className={`sm:flex-row flex-col flex relative text-[18px] gap-6 ${openMenu ? 'flex' : 'hidden sm:flex'} z-20`}>
         {games.map((g, index) => {
+            if (g.slug === router.query.game) {
+                setImg(g.img)
+            }
             if (openMenu && g.slug === router.query.game) {
+
+    
                 null
             } else {
           return (
