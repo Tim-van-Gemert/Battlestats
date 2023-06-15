@@ -47,3 +47,7 @@
 .change3 {
   transform: translate(0, -11px) rotate(45deg);
 }
+
+.none {
+  display: none !important;
+}

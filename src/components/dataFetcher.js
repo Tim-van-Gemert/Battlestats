@@ -13,7 +13,6 @@ const DataFetcher = (props) => {
           `https://api.gametools.network/${props.game}/stats/?raw=false&format_values=true&name=${props.player}&platform=${props.platform}&skip_battlelog=false`
         )
         .then((response) => {
-          console.log(response)
           // return raw data
           props.setPlayerData(response.data)
           // send data to constructor
