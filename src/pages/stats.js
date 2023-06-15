@@ -48,8 +48,10 @@ export default function Stats() {
   const [mapData, setMapData] = useState();
   const [mapGraphData, setMapGraphData] = useState()
   const [operatorGraphData, setOperatorGraphData] = useState()
-  
-  let img = ''
+  const [openMenu, setOpenMenu] = useState(false)
+  const [selectedMobileMenuItem, setSelectedMobileMenuItem] = useState()
+
+  let img = '';
 
   useEffect(() => {
     setCurrentGame(router.query.game);
@@ -57,104 +59,92 @@ export default function Stats() {
 
   useEffect(() => {
 
-  }, [bestWeapon])
+  }, [bestWeapon]);
 
   const { userName } = router.query;
   const { game } = router.query;
   const { platform } = router.query;
 
+  const TEST = 'test';
 
-  if (userName != undefined && game != undefined && platform != undefined ) {
-    console.log(userName, game, platform)
-  return (
-    <>
-      <DataFetcher 
-      player={userName} 
-      setPlayerData={setPlayerData} 
-      setObjectiveData={setObjectiveData} 
-      game={game} 
-      platform={platform}
-      setCombatData={setCombatData}
-      setGameModeData={setGameModeData} 
-      setClassData={setClassData}
-      setMapData={setMapData}
-      setMapGraphData={setMapGraphData}
-      setOperatorGraphData={setOperatorGraphData}
-      />
-      <Head>
-        <title>{playerData?.userName} | {currentGame}</title>
-      </Head>
-      <div className={`xl:w-[1200px]  z-20 mt-12 flex flex-col gap-6  h-[100%] min-h-[100%] pb-20`}>
-        <Link  className="relative z-20 text-[#B4B4B4] w-fit flex flex-row gap-2 items-center group" href={'/'}><FontAwesomeIcon className="group-hover:-translate-x-1 h-[12px] transition-all" icon={faArrowLeft}/><div>Back to home</div></Link>
-        <div className="flex flex-row gap-6">
-          <img src={playerData?.avatar || "bfpfp.jpeg"} className={`h-[100px] w-[100px] relative z-20 rounded-[5px] bg-[#1E1E27] ${!playerData ? 'skeleton' : ''}`} />
-          <div className="flex flex-col h-full gap-1 relative z-20 justify-center">
-            <h1 className={`text-[24px] text-[white]  ${!playerData ? 'rounded-[5px] skeleton w-[200px] bg-[#1E1E27] text-white h-[30px]' : ' text-[white]'}`}>{playerData?.userName}</h1>
-            <p className={`text-[18px] ${!playerData ? 'rounded-[5px] skeleton w-[100px] bg-[#1E1E27] h-[30px]' : ''} text-[#B4B4B4]`}>{playerData?.id}</p>
+  useEffect(() => {
+    const currentGameObj = games.find((g) => g.slug === router.query.game);
+    if (currentGameObj) {
+      document.getElementById('currentitem').textContent = currentGameObj.name;
+    }
+  }, [router.query.game]);
+
+  if (userName != undefined && game != undefined && platform != undefined) {
+    return (
+      <>
+        <DataFetcher
+          player={userName}
+          setPlayerData={setPlayerData}
+          setObjectiveData={setObjectiveData}
+          game={game}
+          platform={platform}
+          setCombatData={setCombatData}
+          setGameModeData={setGameModeData}
+          setClassData={setClassData}
+          setMapData={setMapData}
+          setMapGraphData={setMapGraphData}
+          setOperatorGraphData={setOperatorGraphData}
+        />
+        <Head>
+          <title>{playerData?.userName} | {currentGame}</title>
+        </Head>
+        <div className={`xl:w-[1200px]  z-20 mt-12 flex flex-col gap-6  h-[100%] min-h-[100%] pb-20`}>
+          <Link className="relative z-20 text-[#B4B4B4] w-fit flex flex-row gap-2 items-center group" href={'/'}><FontAwesomeIcon className="group-hover:-translate-x-1 h-[12px] transition-all" icon={faArrowLeft} /><div>Back to home</div></Link>
+          <div className="flex flex-row gap-6">
+            <img src={playerData?.avatar || "bfpfp.jpeg"} className={`h-[100px] w-[100px] relative z-20 rounded-[5px] bg-[#1E1E27] ${!playerData ? 'skeleton' : ''}`} />
+            <div className="flex flex-col h-full gap-1 relative z-20 justify-center">
+              <h1 className={`text-[24px] text-[white]  ${!playerData ? 'rounded-[5px] skeleton w-[200px] bg-[#1E1E27] text-white h-[30px]' : ' text-[white]'}`}>{playerData?.userName}</h1>
+              <p className={`text-[18px] ${!playerData ? 'rounded-[5px] skeleton w-[100px] bg-[#1E1E27] h-[30px]' : ''} text-[#B4B4B4]`}>{playerData?.id}</p>
+            </div>
           </div>
-        </div>
-        <div className="sm:flex-row flex-col flex relative text-[10px] sm:text-[18px] gap-6  z-20">
-          {games.map((g) => {
-            if (g.slug == router.query.game) {
-              img = g.img
-            }
-            return (
-              <Link key={g.slug} href={`/stats?userName=${userName}&platform=${platform}&game=${g.slug}`} className={`p-3 ${g.slug === router.query.game ? 'bg-[#1E1E27]' : 'hover:bg-[#1E1E27]'} ${!playerData ? 'rounded-[5px] skeleton bg-[#1E1E27] w-[150px] h-[30px]' : ''} transition-all rounded-[5px] hover:cursor-pointer`}>{!playerData ? null : g.name}</Link>
-            );
-          })}
-        </div>
-        <div className={` flex-row ${!playerData ? ' flex skeleton' : 'hidden'} relative z-20 xl:h-[300px]`}>
-        <div className={` bg-[#1E1E27] ${!playerData ? 'skeleton' : 'hidden'} rounded-[5px] w-full h-full p-5 gap-6`}>
-        </div>
-        </div>
-        {playerData && (
-                  <DisplayData 
-                  combatData={combatData}
-                  objectiveData={objectiveData}
-                  gameModeData={gameModeData}
-                  classData={classData}
-                  mapData={mapData}
-                  mapGraphData={mapGraphData}
-                  game={currentGame}
-                  playerData={playerData}
-                  operatorGraphData={operatorGraphData}
-                  />
-            )}
+          <div className="w-full flex sm:hidden gap-8 items-center flex-row">
+            <Link href={'/'} id='currentitem' className={`p-3 w-full z-30 relative bg-[#1E1E27] ${!playerData ? 'rounded-[5px] skeleton bg-[#1E1E27] w-[150px] h-[30px]' : ''} transition-all rounded-[5px] hover:cursor-pointer`} />
+            <div className="container z-30  flex justify-end w-fit" onClick={() => { setOpenMenu(!openMenu) }}>
+              <div className={`bar1  ${openMenu ? 'change1' : ''}`}></div>
+              <div className={`bar2  ${openMenu ? 'change2' : ''}`}></div>
+              <div className={`bar3  ${openMenu ? 'change3' : ''}`}></div>
+            </div>
+          </div>
+          <div className={`sm:flex-row flex-col  flex relative sm:text-[18px] gap-6 ${openMenu ? 'flex' : 'hidden sm:flex'}  z-20`}>
+            {games.map((g) => {
+              if (g.slug === router.query.game) {
+                img = g.img;
+              }
+              return (
+                <Link key={g.slug} href={`/stats?userName=${userName}&platform=${platform}&game=${g.slug}`} className={`p-3 ${g.slug === router.query.game ? 'bg-[#1E1E27]' : 'hover:bg-[#1E1E27]'} ${!playerData ? 'rounded-[5px] skeleton bg-[#1E1E27] w-[150px] h-[30px]' : ''} transition-all rounded-[5px] hover:cursor-pointer ${openMenu && g.slug === router.query.game ? 'hidden' : ''}`}>{!playerData ? null : g.name}</Link>
+              );
+            })}
+          </div>
+          <div className={` flex-row ${!playerData ? ' flex skeleton' : 'hidden'} relative z-20 xl:h-[300px]`}>
+            <div className={` bg-[#1E1E27] ${!playerData ? 'skeleton' : 'hidden'} rounded-[5px] w-full h-full p-5 gap-6`}>
+            </div>
+          </div>
+          {playerData && (
+            <DisplayData
+              combatData={combatData}
+              objectiveData={objectiveData}
+              gameModeData={gameModeData}
+              classData={classData}
+              mapData={mapData}
+              mapGraphData={mapGraphData}
+              game={currentGame}
+              playerData={playerData}
+              operatorGraphData={operatorGraphData}
+            />
+          )}
 
-          <div className={`rounded-[10px] transition-all h-screen w-screen absolute left-0 top-0 z-[9] opacity-[20%] bg-no-repeat bg-cover ${img}`}/>
+          <div className={`rounded-[10px] transition-all h-screen w-screen absolute left-0 top-0 z-[9] opacity-[20%] bg-no-repeat bg-cover ${img}`} />
           <div className="rounded-[10px] transition-all h-screen w-screen absolute left-0 top-0 z-[10]  bg-no-repeat bg-cover bg-gradient-to-t from-[#0F111C] via-transparant to-transparant" />
 
-      </div>
-    </>
-  )}
+        </div>
+      </>
+    )
+  }
 }
 
 
-// <div className="flex flex-col justify-between col-span-2">
-// <div className="font-bold">Best Weapons</div>
-// <div className="flex flex-row gap-12">
-// {bestWeapon?.map((bw) => {
-//   return (
-//     <div className="flex flex-col  gap-2">
-//       <div className="flex flex-row  gap-4">
-//         <div className="flex flex-row ">
-//           <div className="text-[#B4B4B4]"> Name :</div> <div>{bw.name}</div>
-//         </div>
-//         <div className="flex flex-row">
-//           <div className="text-[#B4B4B4]"> Type :</div> <div>{bw.type}</div>
-//         </div>
-//         <div className="flex flex-row">
-//           <div className="text-[#B4B4B4]"> Kills :</div> <div>{bw.kills}</div>
-//         </div>
-//         <div className="flex flex-row">
-//           <div className="text-[#B4B4B4]"> Times :</div> <div>{bw.timeEquiped}</div>
-//         </div>
-        
-//       </div>
-//       <img className="w-full h-[150px]" src={bw.img} />
-
-//     </div>
-//   )
-// })}
-// </div>
-// </div>
