@@ -9,7 +9,7 @@ const GameSelection = ({ platform, userName, playerData, openMenu, setOpenMenu, 
     hidden: {
       opacity: 0,
       y: 20,
-      scaleY: 0,
+      scaleY: 1,
       transformOrigin: 'top',
     },
     visible: (index) => ({
@@ -24,7 +24,7 @@ const GameSelection = ({ platform, userName, playerData, openMenu, setOpenMenu, 
 
   return (
     <>
-      <div className="w-full flex sm:hidden gap-8 items-center flex-row">
+      <div className="w-full flex  sm:hidden gap-8 items-center  flex-row">
         <div id="currentitem" className={`p-3 w-full z-20 relative bg-[#1E1E27]  ${!playerData ? 'rounded-[5px] text-[#1E1E27] skeleton bg-[#1E1E27] w-[150px] h-[30px]' : ''} transition-all rounded-[5px] text-[18px] hover:cursor-pointer`} />
         <div className="container z-30 flex justify-end w-fit" onClick={() => setOpenMenu(!openMenu)}>
           <div className={`bar1 ${openMenu ? 'change1' : ''}`}></div>
@@ -48,10 +48,11 @@ const GameSelection = ({ platform, userName, playerData, openMenu, setOpenMenu, 
               animate={openMenu ? 'visible' : 'hidden'}
               custom={index}
               variants={menuItemsVariants}
+              className="sm:hidden"
             >
               <Link
                 href={`/stats?userName=${userName}&platform=${platform}&game=${g.slug}`}
-                className={`p-3 mb-[40px] ${g.slug === router.query.game ? 'bg-[#1E1E27]' : 'hover:bg-[#1E1E27]'} ${!playerData ? 'rounded-[5px] skeleton bg-[#1E1E27] w-[150px] h-[30px]' : ''} transition-all rounded-[5px] hover:cursor-pointer`}
+                className={`p-3 sm:opacity-100 mb-[40px] ${g.slug === router.query.game ? 'bg-[#1E1E27]' : 'hover:bg-[#1E1E27]'} ${!playerData ? 'rounded-[5px] skeleton bg-[#1E1E27] w-[150px] h-[30px]' : ''} transition-all rounded-[5px] hover:cursor-pointer`}
                 onClick={() => setOpenMenu(false)}
               >
                 {!playerData ? null : g.name}
@@ -60,6 +61,22 @@ const GameSelection = ({ platform, userName, playerData, openMenu, setOpenMenu, 
           );
             }
         })}
+        <div className="hidden sm:flex gap-6 -mb-10">
+            {games.map((g, index) => {
+                if (g.slug === router.query.game) {
+                    setImg(g.img)
+                }
+            return (
+                <Link
+                    href={`/stats?userName=${userName}&platform=${platform}&game=${g.slug}`}
+                    className={`p-3 sm:opacity-100 mb-[40px] ${g.slug === router.query.game ? 'bg-[#1E1E27]' : 'hover:bg-[#1E1E27]'} ${!playerData ? 'rounded-[5px] skeleton bg-[#1E1E27] w-[150px] h-[30px]' : ''} transition-all rounded-[5px] hover:cursor-pointer`}
+                    onClick={() => setOpenMenu(false)}
+                >
+                    {!playerData ? null : g.name}
+                </Link>
+            );
+            })}
+        </div>
       </div>
     </>
   );

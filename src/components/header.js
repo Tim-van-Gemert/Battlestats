@@ -9,12 +9,12 @@ const Header = () => {
                     <div className="w-0 group-hover:w-full bg-white h-[2px] transition-all" ></div>
                 </div>
             </div>
-            {/* <div className="w-full flex h-fit  justify-end">
+            <div className="w-full flex h-fit  justify-end">
                 <div className="group flex flex-col  w-fit z-30 relative  hover:cursor-pointer">
                     <a href={'https://github.com/Tim-van-Gemert'} target="blank" className="">Github</a>
                     <div className="w-0 transition-all group-hover:w-full bg-white h-[2px]"></div>
                 </div>
-            </div> */}
+            </div>
         </div>
     )
 }
