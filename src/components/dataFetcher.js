@@ -6,12 +6,14 @@ const DataFetcher = (props) => {
   const [fetchedData, setFetchedData] = useState()
 
   useEffect(() => {
+    console.log(props.game)
     if (props.game != undefined) {
       axios
         .get(
           `https://api.gametools.network/${props.game}/stats/?raw=false&format_values=true&name=${props.player}&platform=pc&skip_battlelog=false`
         )
         .then((response) => {
+          console.log(response)
           // return raw data
           props.setPlayerData(response.data)
           // send data to constructor
