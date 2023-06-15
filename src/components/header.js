@@ -1,3 +1,4 @@
+import Link from "next/link"
 const Header = () => {
     return (
         <div className="text-white  flex-row py-5 flex xl:w-[1200px] w-full items-center ">
