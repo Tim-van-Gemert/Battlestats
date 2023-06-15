@@ -100,7 +100,7 @@ export default function Stats() {
               img = g.img
             }
             return (
-              <Link key={g.slug} href={`/?game=${g.slug}`} className={`p-3 ${g.slug === router.query.game ? 'bg-[#1E1E27]' : 'hover:bg-[#1E1E27]'} ${!playerData ? 'rounded-[5px] skeleton bg-[#1E1E27] w-[150px] h-[30px]' : ''} transition-all rounded-[5px] hover:cursor-pointer`}>{!playerData ? null : g.name}</Link>
+              <Link key={g.slug} href={`/stats?userName=${userName}&platform=${platform}&game=${g.slug}`} className={`p-3 ${g.slug === router.query.game ? 'bg-[#1E1E27]' : 'hover:bg-[#1E1E27]'} ${!playerData ? 'rounded-[5px] skeleton bg-[#1E1E27] w-[150px] h-[30px]' : ''} transition-all rounded-[5px] hover:cursor-pointer`}>{!playerData ? null : g.name}</Link>
             );
           })}
         </div>
