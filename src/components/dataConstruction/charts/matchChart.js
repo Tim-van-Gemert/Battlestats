@@ -31,8 +31,8 @@ const MatchChart = ({ mapGraphData }) => {
   };
 
   return (
-    <div className="w-full h-full relative z-20 flex  my-auto">
-      <div className="border border-gray-400 pt-0 rounded-xl w-full h-full my-auto shadow-xl">
+    <div className="w-full h-full relative z-20 flex items-center justify-center  my-auto">
+      <div className="border border-gray-400 pt-0 rounded-[5px] w-full flex items-center justify-center h-full my-auto shadow-xl">
         <canvas ref={canvasRef}></canvas>
       </div>
     </div>

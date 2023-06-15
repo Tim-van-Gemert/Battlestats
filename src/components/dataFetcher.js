@@ -7,12 +7,9 @@ const DataFetcher = (props) => {
 
   useEffect(() => {
     if (props.game != undefined) {
-
-  
-    props.players.forEach((player) => {
       axios
         .get(
-          `https://api.gametools.network/${props.game}/stats/?raw=false&format_values=true&name=${player}&platform=pc&skip_battlelog=false`
+          `https://api.gametools.network/${props.game}/stats/?raw=false&format_values=true&name=${props.player}&platform=pc&skip_battlelog=false`
         )
         .then((response) => {
           // return raw data
@@ -23,7 +20,6 @@ const DataFetcher = (props) => {
         .catch((error) => {
           console.error(error);
         });
-    });
   }
   }, [props.game]);
   

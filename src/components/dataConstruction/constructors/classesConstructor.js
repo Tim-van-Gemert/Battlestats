@@ -3,8 +3,6 @@ import { useEffect } from "react";
 const ConstructClassData = (props) => {
   const { APIData, setClassData, game, setOperatorGraphData } = props;
   let classData;
-  console.log(game)
-  console.log(APIData)
   if (game != undefined) {
     if (game == 'bf2042') {
       classData = APIData.classes
@@ -16,7 +14,6 @@ const ConstructClassData = (props) => {
         }));
       const operators = []
       APIData.classes.map((o)=>{
-        console.log(o)
         operators.push({
           name: o.characterName,
           kills: o.kills

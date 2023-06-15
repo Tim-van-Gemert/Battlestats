@@ -60,7 +60,7 @@ const ConstructMapData = (props) => {
         return { name: item.name, data: winRateFormatted };
     });
 
-    console.log(sortedMapData)
+
     setMapData(sortedMapData);
     setMapGraphData(mapGraphData)
 };

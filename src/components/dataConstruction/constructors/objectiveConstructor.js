@@ -2,7 +2,6 @@ import { useEffect } from "react";
 
 const ConstructObjectiveData = (props) => {
   const { APIData, setObjectiveData, game } = props;
-  console.log(APIData);
   let objectiveData;
   if (game !== undefined) {
     if (game === 'bf2042') {

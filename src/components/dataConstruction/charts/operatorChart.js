@@ -15,9 +15,13 @@ const OperatorChart = ({ operatorGraphData }) => {
   }, []);
 
   const getChartData = () => {
-    const labels = operatorGraphData.map((operator) => operator.name);
-    const data = operatorGraphData.map((operator) => operator.kills);
-    
+    const filteredData = operatorGraphData.filter((operator) => operator.kills > 12);
+
+    const sortedData = filteredData.sort((a, b) => b.kills - a.kills);
+
+    const labels = sortedData.map((operator) => operator.name);
+    const data = sortedData.map((operator) => operator.kills);
+
     return {
       labels: labels,
       datasets: [
@@ -37,9 +41,9 @@ const OperatorChart = ({ operatorGraphData }) => {
     const datasets = chartData.datasets.map((dataset) => ({
       label: dataset.label,
       data: dataset.data,
-      backgroundColor: dataset.backgroundColor,
-      borderColor: 'rgb(62,149,205)',
-      borderWidth: 'rgb(62,149,205,01)',
+      backgroundColor: 'rgb(62,149,205,0.1)',
+      borderColor: "rgb(62,149,205)",
+      borderWidth: 2
     }));
 
     return new Chart(ctx, {
@@ -64,8 +68,8 @@ const OperatorChart = ({ operatorGraphData }) => {
   };
 
   return (
-    <div className="w-full h-full relative z-20">
-      <div className="border border-gray-400 rounded-xl w-full h-full">
+    <div className="w-full h-full relative flex items-center justify-center  z-20">
+      <div className="border border-gray-400 rounded-[5px] flex items-center justify-center  w-full h-full">
         <canvas ref={canvasRef}></canvas>
       </div>
     </div>
