@@ -97,7 +97,7 @@ export default function Stats() {
         <div className={`xl:w-[1200px]  z-20 mt-12 flex flex-col gap-6  h-[100%] min-h-[100%] pb-20`}>
           <Link className="relative z-20 text-[#B4B4B4] w-fit flex flex-row gap-2 items-center group" href={'/'}><FontAwesomeIcon className="group-hover:-translate-x-1 h-[12px] transition-all" icon={faArrowLeft} /><div>Back to home</div></Link>
           <div className="flex flex-row gap-6">
-            <img src={playerData?.avatar || "bfpfp.jpeg"} className={`h-[100px] w-[100px] relative z-20 rounded-[5px] bg-[#1E1E27] ${!playerData ? 'skeleton' : ''}`} />
+            <img  border="0" src={playerData?.avatar} className={`h-[100px] w-[100px] relative z-20 rounded-[5px] bg-[#1E1E27] ${!playerData ? 'skeleton' : ''}`} />
             <div className="flex flex-col h-full gap-1 relative z-20 justify-center">
               <h1 className={`text-[24px] text-[white]  ${!playerData ? 'rounded-[5px] skeleton w-[200px] bg-[#1E1E27] text-white h-[30px]' : ' text-[white]'}`}>{playerData?.userName}</h1>
               <p className={`text-[18px] ${!playerData ? 'rounded-[5px] skeleton w-[100px] bg-[#1E1E27] h-[30px]' : ''} text-[#B4B4B4]`}>{playerData?.id}</p>
