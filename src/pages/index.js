@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [userName, setUsernameName] = useState()
-  const [platform, setPlatform] = useState()
+  const [platform, setPlatform] = useState('pc')
   const [game, setGame] = useState('bf2042')
 
   useEffect(()=>{
@@ -35,7 +35,7 @@ export default function Home() {
               <option value="bfh">Battlefield Hardline</option>
             </select>
           </div>
-          <Link href={'/stats'} className={` bg-[#1E1E27] hover:cursor-pointer rounded-[5px] text-start w-fit h-fit p-4 gap-6`}>Search</Link>
+          <Link href={{pathname: '/stats', query: { userName: userName, platform: platform, game: game  } }}className={` bg-[#1E1E27] hover:cursor-pointer rounded-[5px] text-start w-fit h-fit p-4 gap-6`}>Search</Link>
         </div>
       </div>
     </>)

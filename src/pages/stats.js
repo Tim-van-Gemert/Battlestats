@@ -64,14 +64,18 @@ export default function Stats() {
 
   }, [bestWeapon])
 
+  const { userName } = router.query;
+  const { game } = router.query;
+  const { platform } = router.query;
 
   return (
     <>
       <DataFetcher 
-      player={'TIMMMAHHHHHH'} 
+      player={userName} 
       setPlayerData={setPlayerData} 
       setObjectiveData={setObjectiveData} 
-      game={currentGame} 
+      game={game} 
+      platform={platform}
       setCombatData={setCombatData}
       setGameModeData={setGameModeData} 
       setClassData={setClassData}

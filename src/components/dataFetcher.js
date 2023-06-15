@@ -4,13 +4,13 @@ import MainDataConstructor from "./dataConstruction/mainDataConstructor";
 
 const DataFetcher = (props) => {
   const [fetchedData, setFetchedData] = useState()
-
+  console.log(`https://api.gametools.network/${props.game}/stats/?raw=false&format_values=true&name=${props.player}&platform=${props.platform}&skip_battlelog=false`)
   useEffect(() => {
     console.log(props.game)
     if (props.game != undefined) {
       axios
         .get(
-          `https://api.gametools.network/${props.game}/stats/?raw=false&format_values=true&name=${props.player}&platform=pc&skip_battlelog=false`
+          `https://api.gametools.network/${props.game}/stats/?raw=false&format_values=true&name=${props.player}&platform=${props.platform}&skip_battlelog=false`
         )
         .then((response) => {
           console.log(response)
