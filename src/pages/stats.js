@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from 'next/router';
 import Head from 'next/head'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 import DataFetcher from "@/components/dataFetcher";
 import DisplayData from "@/components/displayData";
@@ -87,6 +89,7 @@ export default function Stats() {
         <title>{playerData?.userName} | {currentGame}</title>
       </Head>
       <div className={`xl:w-[1200px]  z-20 mt-12 flex flex-col gap-6  h-[100%] min-h-[100%] pb-20`}>
+        <Link  className="relative z-20 text-[#B4B4B4] w-fit flex flex-row gap-2 items-center group" href={'/'}><FontAwesomeIcon className="group-hover:-translate-x-1 h-[12px] transition-all" icon={faArrowLeft}/><div>Back to home</div></Link>
         <div className="flex flex-row gap-6">
           <img src={playerData?.avatar} className={`h-[100px] w-[100px] relative z-20 rounded-[5px] bg-[#1E1E27] ${!playerData ? 'skeleton' : ''}`} />
           <div className="flex flex-col h-full gap-1 relative z-20 justify-center">

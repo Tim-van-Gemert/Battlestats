@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MatchChart from "@/components/dataConstruction/charts/matchChart";
 import OperatorChart from "@/components/dataConstruction/charts/operatorChart";
+import { useAmp } from "next/amp";
 
 const DisplayData = ({ combatData, objectiveData, gameModeData, classData, mapData, game, mapGraphData, playerData, operatorGraphData}) => {
   const renderDataSection = (data, title, subtitle) => {
@@ -59,7 +60,8 @@ const DisplayData = ({ combatData, objectiveData, gameModeData, classData, mapDa
         </div>
       </div>
     );
-  }
+  } 
+
 
   return null;
 };
