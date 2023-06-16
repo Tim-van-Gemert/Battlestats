@@ -68,7 +68,7 @@ const GameSelection = ({ platform, userName, playerData, openMenu, setOpenMenu, 
                 }
             return (
                 <Link
-                    href={`/stats?userName=${userName}&platform=${platform}&game=${g.slug}`}
+                    href={`/stats/${platform}/${userName}/${g.slug}`}
                     className={`p-3 sm:opacity-100 mb-[40px] ${g.slug === router.query.game ? 'bg-[#1E1E27]' : 'hover:bg-[#1E1E27]'} ${!playerData ? 'rounded-[5px] skeleton bg-[#1E1E27] w-[150px] h-[30px]' : ''} transition-all rounded-[5px] hover:cursor-pointer`}
                     onClick={() => setOpenMenu(false)}
                 >

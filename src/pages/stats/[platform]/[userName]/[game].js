@@ -62,9 +62,7 @@ export default function Stats() {
 
   }, [bestWeapon]);
 
-  const { userName } = router.query;
-  const { game } = router.query;
-  const { platform } = router.query;
+  const { platform, userName, game } = router.query;
 
   const TEST = 'test';
 
