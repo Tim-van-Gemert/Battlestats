@@ -39,8 +39,6 @@ const GameSelection = ({ platform, userName, playerData, openMenu, setOpenMenu, 
                 return <div key={g.slug} className="hidden"></div>
             }
             if (openMenu && g.slug === router.query.game) {
-
-    
                 null
             } else {
           return (
@@ -53,7 +51,7 @@ const GameSelection = ({ platform, userName, playerData, openMenu, setOpenMenu, 
             >
               <Link
                 href={`/stats/${platform}/${userName}/${g.slug}`}
-                className={`p-3 sm:opacity-100 mb-[40px] ${g.slug === router.query.game ? 'bg-[#1E1E27]' : 'hover:bg-[#1E1E27]'} ${!playerData ? 'rounded-[5px] skeleton bg-[#1E1E27] w-[150px] h-[30px]' : ''} transition-all rounded-[5px] hover:cursor-pointer`}
+                className={`p-3 sm:opacity-100 mb-[40px] ${g.slug === router.query.game ? 'bg-[#1E1E27]' : 'hover:bg-[#1E1E27]'} ${!playerData ? 'rounded-[5px] hidden bg-[#1E1E27] w-[150px] h-[30px]' : ''} transition-all rounded-[5px] hover:cursor-pointer`}
                 onClick={() => setOpenMenu(false)}
               >
                 {!playerData ? null : g.name}
@@ -66,7 +64,7 @@ const GameSelection = ({ platform, userName, playerData, openMenu, setOpenMenu, 
             {games.map((g, index) => {
                 if (g.slug === router.query.game) {
                     setImg(g.img)
-                    return <div className={`p-3 sm:opacity-100  ${g.slug === router.query.game ? 'bg-[#1E1E27]' : 'hover:bg-[#1E1E27]'} ${!playerData ? 'rounded-[5px] skeleton bg-[#1E1E27] w-[150px] h-[30px]' : ''} transition-all rounded-[5px] hover:cursor-pointer `}key={g.slug}>{g.name}</div>
+                    return <div className={`p-3 sm:opacity-100  ${g.slug === router.query.game ? 'bg-[#1E1E27]' : 'hover:bg-[#1E1E27]'} ${!playerData ? 'rounded-[5px] skeleton bg-[#1E1E27] w-[150px] h-[30px]' : ''} transition-all rounded-[5px] hover:cursor-pointer `}key={g.slug}>              {!playerData ? null : g.name}</div>
                 }
             return (
                 <Link
