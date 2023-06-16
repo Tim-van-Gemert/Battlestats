@@ -94,13 +94,14 @@ export default function Stats() {
         <Head>
           <title>{playerData?.userName} | {currentGame}</title>
         </Head>
-        <div className={`xl:w-[1200px] w-full z-20 mt-12 flex flex-col gap-6  h-[100%] min-h-[100%] pb-20`}>
+        <div className={`xl:w-[1200px]  2xl:w-[1500px]  w-full z-20 mt-12 flex flex-col gap-6  h-[100%] min-h-[100%] pb-20`}>
           <Link className="relative z-20 text-[#B4B4B4] w-fit flex flex-row gap-2 items-center group" href={'/'}><FontAwesomeIcon className="group-hover:-translate-x-1 h-[12px] transition-all" icon={faArrowLeft} /><div>Back to home</div></Link>
-          <div className="flex flex-row gap-6">
-            <img  border="0" src={'bfpfp.jpeg'} className={`h-[100px] w-[100px] relative z-20 rounded-[5px] bg-[#313443] ${!playerData ? 'skeleton' : ''}`} />
+          <div className="flex flex-row gap-6 items-center">
+            <img  border="0" src={'bfpfp.jpeg'} className={`h-[75px] w-[75px] relative z-20 rounded-[5px] bg-[#313443] ${!playerData ? 'hidden' : ''}`} />
+            <div  className={`h-[75px] w-[75px] relative z-20 rounded-[5px] bg-[#313443] ${!playerData ? 'skeleton' : 'hidden'}`} />
             <div className="flex flex-col h-full gap-1 relative z-20 justify-center">
-              <h1 className={`text-[24px] text-[white]  ${!playerData ? 'rounded-[5px] skeleton w-[200px] bg-[#313443] text-white h-[30px]' : ' text-[white]'}`}>{playerData?.userName}</h1>
-              <p className={`text-[18px] ${!playerData ? 'rounded-[5px] skeleton w-[100px] bg-[#313443] h-[30px]' : ''} text-[#B4B4B4]`}>{playerData?.id}</p>
+              <h1 className={`text-[18px] text-[white]  ${!playerData ? 'rounded-[5px] skeleton w-[200px] bg-[#313443] text-white h-[30px]' : ' text-[white]'}`}>{playerData?.userName}</h1>
+              <p className={`text-[12px] ${!playerData ? 'rounded-[5px] skeleton w-[100px] bg-[#313443] h-[30px]' : ''} text-[#B4B4B4]`}>{playerData?.id}</p>
             </div>
           </div>
             <GameSelection platform={platform} userName={userName} playerData={playerData} setOpenMenu={setOpenMenu} openMenu={openMenu} games={games} setImg={setImg}/>
