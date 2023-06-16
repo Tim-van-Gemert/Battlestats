@@ -26,11 +26,11 @@ const DisplayData = ({ combatData, objectiveData, gameModeData, classData, mapDa
 
   if (game === 'bf2042' && combatData && classData && objectiveData && gameModeData && classData) {
     const stats = [
-      {name: 'Combat', data: combatData},
-      {name: 'Classes', data: classData},
-      {name: 'Objective', data: objectiveData},
-      {name: 'Game Modes', data: gameModeData},
-      {name: 'Maps', data: mapData},
+      {name: 'Combat', subname: '', data: combatData},
+      {name: 'Classes',subname: '', data: classData},
+      {name: 'Objective', subname: '', data: objectiveData},
+      {name: 'Game Modes', subname: '(Win rate)', data: gameModeData},
+      {name: 'Maps', subname: '(Win rate)', data: mapData},
     ]
     return (
       <>
@@ -40,7 +40,7 @@ const DisplayData = ({ combatData, objectiveData, gameModeData, classData, mapDa
           <div  key={s.name} className="flex flex-row relative z-20 xl:h-[300px]">
           <motion.div className="bg-[#16181f] rounded-[5px] w-full h-full p-5 gap-6">
             <div className="grid w-full grid-cols-1  gap-10 min-w-full min-h-full w-full h-full">
-              {renderDataSection(s.data, s.name)}
+              {renderDataSection(s.data, s.name, s.subname)}
             </div>
           </motion.div>
         </div>
