@@ -3,7 +3,7 @@ import Header from '@/components/header'
 
 export default function App({ Component, pageProps }) {
   return (
-    <div className='flex flex-col relative min-h-screen min-w-screen h-[100%] w-[100%] text-white items-center p-10 lg:p-0 bg-[#0e141c]'>
+    <div className='flex flex-col relative min-h-screen min-w-screen h-[100%] w-[100%] text-white items-center p-10 lg:p-0 bg-[#0D0E13]'>
       <Header/>
       <Component {...pageProps} />
     </div>
