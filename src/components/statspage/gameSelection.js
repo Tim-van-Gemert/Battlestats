@@ -61,7 +61,7 @@ const GameSelection = ({ platform, userName, playerData, openMenu, setOpenMenu, 
           );
             }
         })}
-        <div className="hidden sm:flex gap-6 -mb-10">
+        <div className="hidden sm:flex gap-6 -mb-6">
             {games.map((g, index) => {
                 if (g.slug === router.query.game) {
                     setImg(g.img)
