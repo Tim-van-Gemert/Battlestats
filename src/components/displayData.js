@@ -48,7 +48,7 @@ const DisplayData = ({ combatData, objectiveData, gameModeData, classData, mapDa
       })}
       </div>
 
-        {/* <div className="w-full flex flex-col sm:flex-row gap-6">
+        <div className="w-full flex flex-col sm:flex-row gap-6">
 
           <div className={`bg-[#16181f] ${!playerData ? 'skeleton' : ''} rounded-[5px] relative z-20  w-full sm:w-1/2 h-[350px] p-5 gap-6`}>
             <MatchChart mapGraphData={mapGraphData} />
@@ -57,7 +57,7 @@ const DisplayData = ({ combatData, objectiveData, gameModeData, classData, mapDa
           <div className={`bg-[#16181f] ${!playerData ? 'skeleton' : ''} rounded-[5px] relative z-20 w-full sm:w-1/2  h-[350px] p-5 gap-6`}>
             <OperatorChart operatorGraphData={operatorGraphData} />
           </div>
-        </div> */}
+        </div>
   
       </>
     );
