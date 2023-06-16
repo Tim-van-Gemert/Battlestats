@@ -34,7 +34,7 @@ const DisplayData = ({ combatData, objectiveData, gameModeData, classData, mapDa
     ]
     return (
       <>
-      <div className="grid grid-cols-5 gap-6 w-full">
+      <div className={`grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 w-full `}>
       {stats.map((s) => {
         return (
           <div className="flex flex-row relative z-20 xl:h-[300px]">

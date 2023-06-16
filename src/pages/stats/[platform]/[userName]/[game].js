@@ -97,10 +97,14 @@ export default function Stats() {
             </div>
           </div>
             <GameSelection platform={platform} userName={userName} playerData={playerData} setOpenMenu={setOpenMenu} openMenu={openMenu} games={games} setImg={setImg}/>
-          <div className={` flex-row ${!playerData ? ' flex skeleton' : 'hidden'} relative z-20 xl:h-[300px]`}>
+          <div className={` flex-row ${!playerData ? ' flex flex-col  gap-6' : 'hidden'} relative z-20 xl:h-[300px]`}>
             <div className={` bg-[#1E1E27] ${!playerData ? 'skeleton' : 'hidden'} rounded-[5px] w-full h-full p-5 gap-6`}>
             </div>
+            {!playerData && (
+            <div className="w-full h-[200px] skeleton bg-[#16181f]"></div>
+          )}
           </div>
+
           {playerData && (
             <DisplayData
               combatData={combatData}
@@ -114,6 +118,7 @@ export default function Stats() {
               operatorGraphData={operatorGraphData}
             />
           )}
+   
 
           <div className={`rounded-[10px] transition-all h-screen w-screen absolute left-0 top-0 z-[9] opacity-[15%] bg-no-repeat bg-cover ${img}`} />
           <div className="rounded-[10px] transition-all h-screen w-screen absolute left-0 top-0 z-[10]  bg-no-repeat bg-cover bg-gradient-to-t from-[#0D0E13] via-[#0D0E13] to-transparant" />

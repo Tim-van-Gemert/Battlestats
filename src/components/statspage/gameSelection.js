@@ -24,7 +24,7 @@ const GameSelection = ({ platform, userName, playerData, openMenu, setOpenMenu, 
 
   return (
     <>
-      <div className="w-full flex  sm:hidden gap-8 items-center  flex-row">
+      <div className={`w-full ${!playerData ? 'hidden' : 'flex sm:hidden'}   sm:hidden gap-8 items-center  flex-row`}>
         <div id="currentitem" className={`p-3 w-full z-20 relative bg-[#1E1E27]  ${!playerData ? 'rounded-[5px] text-[#1E1E27] skeleton bg-[#1E1E27] w-[150px] h-[30px]' : ''} transition-all rounded-[5px] text-[18px] hover:cursor-pointer`} />
         <div className="container z-30 flex justify-end w-fit" onClick={() => setOpenMenu(!openMenu)}>
           <div className={`bar1 ${openMenu ? 'change1' : ''}`}></div>
