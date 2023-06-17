@@ -16,7 +16,7 @@ const ConstructObjectiveData = (props) => {
     } else {
       objectiveData = [
         { name: 'Wins', data: APIData.wins || 0 },
-        { name: 'loses', data: APIData.bonusScore || 0 },
+        { name: 'loses', data: APIData.loses || 0 },
         { name: 'Win Rate', data: APIData.winPercent || 0 },
         { name: 'Award score', data: APIData.awardScore || 0 },
         { name: 'Squad score', data: APIData.squadScore || 0 },
