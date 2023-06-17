@@ -104,6 +104,7 @@ export default function Stats() {
             <div className="w-full h-[200px] skeleton bg-[#16181f]"></div>
           )}
           </div>
+          
 
           {playerData && (
             <DisplayData

@@ -22,7 +22,7 @@ export default function Home() {
             <select className="bg-[#1E1E27] w-full" name="platform" id="platform"   onChange={(event) => setPlatform(event.target.value)}>
               <option value="pc">PC</option>
               <option value="xbox">Xbox</option>
-              <option value="playstation">Playstation</option>
+              <option value="ps4">Playstation</option>
             </select>
           </div>
           <div className=" bg-[#1E1E27]  rounded-[5px] h-fit p-4 gap-6 ">

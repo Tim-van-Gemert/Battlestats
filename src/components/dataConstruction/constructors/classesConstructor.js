@@ -11,14 +11,16 @@ const ConstructClassData = (props) => {
         .map((item) => ({
           name: item.characterName,
           data: Math.round(item.secondsPlayed / 60 / 60) + "H",
+          svg: item.image
         }));
       const operators = []
       APIData.classes.map((o)=>{
         operators.push({
           name: o.characterName,
-          kills: o.kills
+          kills: o.kills,
         })
       })
+
 
       const graphData = operators
       setOperatorGraphData(graphData)
