@@ -121,8 +121,8 @@ export default function Stats() {
           )}
    
 
-          <div className={`rounded-[10px] transition-all h-screen w-screen absolute left-0 top-0 z-[9] opacity-[15%] bg-no-repeat bg-cover ${img}`} />
-          <div className="rounded-[10px] transition-all h-screen w-screen absolute left-0 top-0 z-[10]  bg-no-repeat bg-cover bg-gradient-to-t from-[#0D0E13] via-[#0D0E13] to-transparant" />
+          <div className={`rounded-[10px] transition-all h-screen w-full absolute left-0 top-0 z-[9] opacity-[15%] bg-no-repeat bg-cover ${img}`} />
+          <div className="rounded-[10px] transition-all h-screen w-full absolute left-0 top-0 z-[10]  bg-no-repeat bg-cover bg-gradient-to-t from-[#0D0E13] via-[#0D0E13] to-transparant" />
 
         </div>
       </>
